@@ -4,14 +4,27 @@ import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-n
 import { Image } from 'react-native';
 
 import Home from '../../Map/components/mapa';
+import Express from './../../login/components/login'
 
 const menuTabs = createBottomTabNavigator({
-    Inicio: {
+    Home: {
         screen: Home,
         navigationOptions: {
             tabBarLabel: 'Inicio',
             tabBarIcon: <Image
                 source={require('./../../assets/menu/home.png')}
+                style={
+                    {width: 26, height: 26,}
+                }
+            />,
+        },
+    },
+    Ordinary: {
+        screen: Express,
+        navigationOptions: {
+            tabBarLabel: 'Expreso',
+            tabBarIcon: <Image
+                source={require('./../../assets/menu/expressBuses.png')}
                 style={
                     {width: 26, height: 26,}
                 }

@@ -14,7 +14,7 @@ const Login = (props) =>{
     return(
         <View style = {styles.container}>
 
-            <Text style = {styles.color}>Hola mundo</Text>
+            <Text style = {styles.color}>este es del mapa</Text>
 
         </View>
     );

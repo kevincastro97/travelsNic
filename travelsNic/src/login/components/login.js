@@ -10,7 +10,7 @@ const Login = (props) =>{
 
     return(
         <View style = {styles.container}>
-            <Text style = {styles.color}>Hola</Text>
+            <Text style = {styles.color}>Hola mundo</Text>
         </View>
     );
 }

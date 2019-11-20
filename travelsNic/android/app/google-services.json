@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "528648616098",
+    "firebase_url": "https://travelsnic-22633.firebaseio.com",
+    "project_id": "travelsnic-22633",
+    "storage_bucket": "travelsnic-22633.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528648616098:android:95d311ed5c00d19a737ffb",
+        "android_client_info": {
+          "package_name": "com.travelsnic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528648616098-8u8p27j57hlqfralr814epvm902lijgh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.travelsnic",
+            "certificate_hash": "61f955df2551ccef57f23360496005b749e5f7ca"
+          }
+        },
+        {
+          "client_id": "528648616098-6sfre1erk62i4ovbcf9jls8lu493bqhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzFJyIwt4EIqaiM36EiiAKT5rX8fAuzoQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528648616098-6sfre1erk62i4ovbcf9jls8lu493bqhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

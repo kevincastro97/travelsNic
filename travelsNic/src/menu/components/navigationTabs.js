@@ -3,12 +3,13 @@ import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { Image } from 'react-native';
 
-import Home from '../../Map/components/mapa';
-import Express from './../../login/components/login'
+import StackNavigatorMap from './stackNavigatorMap';
+import stackNavigatorOrdinary from './stackNavigatorOrdinary';
+import stackNavigatorExpress from './stackNavigatorExpress';
 
 const menuTabs = createBottomTabNavigator({
-    Home: {
-        screen: Home,
+    Inicio: {
+        screen: StackNavigatorMap,
         navigationOptions: {
             tabBarLabel: 'Inicio',
             tabBarIcon: <Image
@@ -19,10 +20,24 @@ const menuTabs = createBottomTabNavigator({
             />,
         },
     },
-    Ordinary: {
-        screen: Express,
+
+    Ordinarios: {
+        screen: stackNavigatorOrdinary,
         navigationOptions: {
-            tabBarLabel: 'Expreso',
+            tabBarLabel: 'Ordinarios',
+            tabBarIcon: <Image
+                source={require('./../../assets/menu/ordinaryBuses.png')}
+                style={
+                    {width: 26, height: 26,}
+                }
+            />,
+        },
+    },
+
+    Expresos: {
+        screen: stackNavigatorExpress,
+        navigationOptions: {
+            tabBarLabel: 'Expresos',
             tabBarIcon: <Image
                 source={require('./../../assets/menu/expressBuses.png')}
                 style={
@@ -31,11 +46,26 @@ const menuTabs = createBottomTabNavigator({
             />,
         },
     },
-   
+
+    Turismo: {
+        screen: stackNavigatorExpress,
+        navigationOptions: {
+            tabBarLabel: 'Turismo',
+            tabBarIcon: <Image
+                source={require('./../../assets/menu/tourism.png')}
+                style={
+                    {width: 26, height: 26,}
+                }
+            />,
+        },
+    },
+
+
 }, {
     tabBarOptions: {
-        activeTintColor: '#673ab7',
-        inactiveTintColor: '#546e7a',
+        activeTintColor: 'white',
+        inactiveTintColor: 'black',
+        activeBackgroundColor: '#069dab'
     },
 });
 

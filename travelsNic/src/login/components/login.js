@@ -59,7 +59,9 @@ const Login = (props) =>{
    
                     </View>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('Screen')}
+                    >
                         <Text style = {styles.textRecover}>
                             ¿Has olvidaste tu contraseña?
                         </Text>
@@ -132,6 +134,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginTop: 5,
         paddingLeft: 10,
+
     },
 
     letterImput:{
@@ -175,5 +178,6 @@ const styles = StyleSheet.create({
         //backgroundColor: '#f4f6f8',
     }
 }) 
+
 
 export default Login;

@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 
 import Map from './../../Map/containers/mapContainer';
+import ButtonMap from './../../Map/utilities/components/buttonMap'
 
 const StackNavigatorMap = createStackNavigator({
     Ordinary: {
@@ -16,6 +18,9 @@ const StackNavigatorMap = createStackNavigator({
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          headerRight: () => (
+            <ButtonMap/>
+          ),
         },
     },
 })

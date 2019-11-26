@@ -3,7 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 
 import Ordinary from './../../buses/ordinary/containers/ordinaryBusOptionsListContainer';
-import Pantalla1 from './../../buses/ordinary/components/pantalla1';
+import OrdinaryDetail from './../../buses/ordinary/containers/ordinaryBusDetailListContainer';
 
 const StackNavigatorOrdinary = createStackNavigator({
     Ordinary: {
@@ -19,7 +19,19 @@ const StackNavigatorOrdinary = createStackNavigator({
           },
         },
     },
-    Pantalla1: Pantalla1
+    OrdinaryDetail: {
+      screen: OrdinaryDetail,
+      navigationOptions: {
+        title: 'Detalle de ruta',
+        headerStyle: {
+          backgroundColor: '#193555',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+  },
 })
 
 export default createAppContainer(StackNavigatorOrdinary);

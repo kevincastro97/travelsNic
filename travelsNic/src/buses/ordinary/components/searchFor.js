@@ -7,6 +7,7 @@ import {
     Image,
     TouchableOpacity,
     StyleSheet,
+
 } from 'react-native';
 
 export  const SearchFor = (props) => {
@@ -23,7 +24,7 @@ export  const SearchFor = (props) => {
             </View>
 
             <TouchableOpacity
-                  onPress = {()=> props.navigation.navigate('Pantalla1')}
+                onPress = {()=> props.navigation.navigate('OrdinaryDetail')}
             >
                 <View  style={styles.modal}>
                     <Image
@@ -32,6 +33,7 @@ export  const SearchFor = (props) => {
                     />
                 </View>
             </TouchableOpacity>
+
         </View>
         
     );

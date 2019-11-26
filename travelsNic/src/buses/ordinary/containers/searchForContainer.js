@@ -1,15 +1,16 @@
 import  React, {Component} from 'react';
 
-import SearchFor from './../components/searchFor'
+import SearchFor from './../components/searchFor';
 
 class SearchForContainer extends Component {
 
-  render() {
-    return (
-
+  render(){
+    return(
+      
       <SearchFor/>
-
+        
     );
+
   }
 }
   

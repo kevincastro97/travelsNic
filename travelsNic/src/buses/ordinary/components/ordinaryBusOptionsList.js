@@ -1,6 +1,11 @@
 import React from 'react';
 
 import {
+    withNavigation
+} from 'react-navigation'
+
+
+import {
     View,
     FlatList,
     TouchableOpacity,
@@ -37,7 +42,7 @@ const OrdinaryBusOptionsList = (props) => {
                         data = {data}
                         ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                         renderItem = {
-                            ({item}) => <Element item = {item}/>
+                            ({item}) => <Element item = {item}  onPress = {(key)=> props.navigation.navigate('OrdinaryDetail')}/>
                         }
                         ItemSeparatorComponent = {() => <SeparatorList/>}
                     />
@@ -53,10 +58,12 @@ const OrdinaryBusOptionsList = (props) => {
 
 const Element = (props) => {
 
-    const { item } = props;
+    const { item , onPress, key} = props;
 
     return(
-        <TouchableOpacity>
+        <TouchableOpacity
+            onPress = {onPress}
+        >
 
             <View style = {styles.container}>
 
@@ -145,6 +152,8 @@ const Element = (props) => {
 
                 </View>
 
+                <Text>Detalles de horario y tiempo</Text>
+
             </View>
 
         </TouchableOpacity>
@@ -216,4 +225,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default OrdinaryBusOptionsList;
+export default withNavigation(OrdinaryBusOptionsList);

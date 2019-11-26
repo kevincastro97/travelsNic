@@ -23,7 +23,7 @@ class OrdinaryBusOptionsListContainer extends Component {
                 {
                     key: '2',
                     image: require('./../../../assets/login/icon.png'),
-                    title: 'Transporte el Bendecido',
+                    title: 'Transporte el Bendecid',
                     line: 'Juigalpa - Managua',
                     price: 'C$ 50',
                     passengers: '54',
@@ -34,7 +34,7 @@ class OrdinaryBusOptionsListContainer extends Component {
                 {
                     key: '3',
                     image: require('./../../../assets/login/icon.png'),
-                    title: 'Transporte el Bendecido',
+                    title: 'Transporte el Bendecidso',
                     line: 'Juigalpa - Managua',
                     price: 'C$ 50',
                     passengers: '54',

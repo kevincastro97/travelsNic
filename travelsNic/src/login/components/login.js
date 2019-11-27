@@ -11,6 +11,8 @@ import {
     TextInput
 } from 'react-native';
 
+import { withNavigation } from 'react-navigation'
+
 const Login = (props) =>{
 
     return(
@@ -29,57 +31,62 @@ const Login = (props) =>{
 
             <View style = {styles.div}/>
 
-                <View style = {styles.size}>
+            <View style = {styles.size}>
 
-                    <Text style = {styles.textDescription}>
-                        Correo
-                    </Text>
+                <Text style = {styles.textDescription}>
+                    Correo
+                </Text>
 
-                    <View style = {styles.textImput}>
+                <View style = {styles.textImput}>
 
-                        <TextInput
-                            style = {styles.letterImput}
-                            placeholder = 'Correo electronico'
-                        />
-   
-                    </View>
+                    <TextInput
+                        style = {styles.letterImput}
+                        placeholder = 'Correo electronico'
+                    />
 
-                    <View style = {styles.divText}/>
-
-                    <Text style = {styles.textDescription}>
-                        Contraseña
-                    </Text>
-
-                    <View style = {styles.textImput}>
-
-                        <TextInput
-                            style = {styles.letterImput}
-                            placeholder = 'Contraseña'
-                        />
-   
-                    </View>
-
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('Screen')}
-                    >
-                        <Text style = {styles.textRecover}>
-                            ¿Has olvidaste tu contraseña?
-                        </Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style = {styles.button}>
-                        <Text style = {styles.textButton}>
-                            Iniciar sesión
-                        </Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity>
-                        <Text style = {styles.textRegistry}>
-                            no tienes cuenta? Regístrate
-                        </Text>
-                    </TouchableOpacity>
-                   
                 </View>
+
+                <View style = {styles.divText}/>
+
+                <Text style = {styles.textDescription}>
+                    Contraseña
+                </Text>
+
+                <View style = {styles.textImput}>
+
+                    <TextInput
+                        style = {styles.letterImput}
+                        placeholder = 'Contraseña'
+                    />
+
+                </View>
+
+                <TouchableOpacity
+                    
+                >
+                    <Text style = {styles.textRecover}>
+                        ¿Has olvidaste tu contraseña?
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                    onPress={() => props.navigation.navigate('MenuTabs')}
+                    style = {styles.button}
+                >
+                    <Text style = {styles.textButton}>
+                        Iniciar sesión
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                     onPress={() => props.navigation.navigate('Registry')}
+                >
+                    <Text style = {styles.textRegistry}>
+                        no tienes cuenta? Regístrate
+                    </Text>
+                </TouchableOpacity>
+                
+            </View>
 
         </ImageBackground>
     );
@@ -180,4 +187,4 @@ const styles = StyleSheet.create({
 }) 
 
 
-export default Login;
+export default withNavigation(Login);

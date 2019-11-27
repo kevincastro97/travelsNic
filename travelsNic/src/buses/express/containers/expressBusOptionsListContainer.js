@@ -4,19 +4,19 @@ import {
     withNavigation
 } from 'react-navigation'
 
-import OrdinaryBusOptionsList from './../components/ordinaryBusOptionsList'
+import ExpressBusOptionsList from '../components/expressBusOptionsList'
 
-class OrdinaryBusOptionsListContainer extends Component {
+class ExpressBusOptionsListContainer extends Component {
 
     constructor(props){
         super(props)
 
         this.state = {
-            ordinaryLines:[
+            expressLines:[
                 {
                     key: '1',
                     image: require('./../../../assets/login/icon.png'),
-                    title: 'Transporte el Bendecido',
+                    title: 'Transporte el Amador',
                     line: 'Juigalpa - Managua',
                     price: 'C$ 50',
                     passengers: '54',
@@ -50,22 +50,22 @@ class OrdinaryBusOptionsListContainer extends Component {
         }
     }
 
-    navigateToOrdinaryDetail = () =>{
-        this.props.navigation.navigate('OrdinaryDetail')
+    navigateToExpressDetail = () =>{
+        this.props.navigation.navigate('ExpressDetail')
     }
 
     render(){
 
-        const {ordinaryLines } = this.state
+        const {expressLines } = this.state
 
         return(
-            <OrdinaryBusOptionsList
-                data = {ordinaryLines}
-                navigateToOrdinaryDetail = {this.navigateToOrdinaryDetail}
+            <ExpressBusOptionsList
+                data = {expressLines}
+                navigateToExpressDetail = {this.navigateToExpressDetail}
             />
         );
 
     }
 }
 
-export default withNavigation(OrdinaryBusOptionsListContainer);
+export default withNavigation(ExpressBusOptionsListContainer);

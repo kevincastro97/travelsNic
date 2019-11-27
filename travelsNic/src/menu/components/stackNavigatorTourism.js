@@ -6,11 +6,11 @@ import Ordinary from './../../buses/ordinary/containers/ordinaryBusOptionsListCo
 import OrdinaryDetail from './../../buses/ordinary/containers/ordinaryBusDetailListContainer';
 import ButtonMap from './../../Map/utilities/components/buttonMap'
 
-const StackNavigatorOrdinary = createStackNavigator({
+const StackNavigatorTourism = createStackNavigator({
     Ordinary: {
         screen: Ordinary,
         navigationOptions: {
-          title: 'Autobuses Ordinarios',
+          title: 'Negocios Nicaraguenses',
           headerStyle: {
             backgroundColor: '#193555',
           },
@@ -38,4 +38,4 @@ const StackNavigatorOrdinary = createStackNavigator({
   },
 })
 
-export default createAppContainer(StackNavigatorOrdinary);
+export default createAppContainer(StackNavigatorTourism);

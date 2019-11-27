@@ -11,15 +11,15 @@ import {
     ScrollView
 } from 'react-native';
 
-import SearchForContainer from './../containers/searchForContainer';
-import ContentSplitter from './../utilities/components/contentSplitter';
-import TextDivider from './../utilities/components/textDivider';
-import SeparatorList from './../utilities/components/separatorList';
-import SeparatorLine from './../utilities/components/separatorLine';
+import ExpressSearchForContainer from '../containers/expressSearchForContainer';
+import ExpressContentSplitter from '../utilities/components/expressContentSplitter';
+import ExpressTextDivider from '../utilities/components/expressTextDivider';
+import ExpressSeparatorList from '../utilities/components/expressSeparatorList';
+import ExpressSeparatorLine from '../utilities/components/expressSeparatorLine';
 
-const OrdinaryBusOptionsList = (props) => {
+const ExpressBusOptionsList = (props) => {
 
-    const { data, navigateToOrdinaryDetail } = props;
+    const { data, navigateToExpressDetail } = props;
 
     return(
         <SafeAreaView  style = {styles.fondo}>
@@ -31,15 +31,15 @@ const OrdinaryBusOptionsList = (props) => {
                     <FlatList 
 
                         ListHeaderComponent={
-                            <SearchForContainer/>
+                            <ExpressSearchForContainer/>
                         }
                         
                         data = { data }
                         ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                         renderItem = {
-                            ({item}) => <Element item = {item}  onPress = {navigateToOrdinaryDetail}/>
+                            ({item}) => <Element item = {item}  onPress = {navigateToExpressDetail}/>
                         }
-                        ItemSeparatorComponent = {() => <SeparatorList/>}
+                        ItemSeparatorComponent = {() => <ExpressSeparatorList/>}
                     />
 
                 </ScrollView>
@@ -83,7 +83,7 @@ const Element = (props) => {
 
                 </View>
 
-                <ContentSplitter/>
+                <ExpressContentSplitter/>
 
                 <View style = {styles.containerAddress}>
 
@@ -97,7 +97,7 @@ const Element = (props) => {
                     
                 </View>
 
-                <TextDivider/>
+                <ExpressTextDivider/>
 
                 <View style = {styles.containerAddress}>
 
@@ -111,7 +111,7 @@ const Element = (props) => {
                     
                 </View>
 
-                <SeparatorLine/>
+                <ExpressSeparatorLine/>
 
                 <Text style = {styles.schedule}>
                     Detalle de Horarios
@@ -131,7 +131,7 @@ const Element = (props) => {
 
                     </View>
 
-                    <TextDivider/>
+                    <ExpressTextDivider/>
 
                     <View style = {styles.containerAddress}>
 
@@ -220,4 +220,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default OrdinaryBusOptionsList;
+export default ExpressBusOptionsList;

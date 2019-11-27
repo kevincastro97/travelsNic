@@ -6,6 +6,7 @@ import { Image } from 'react-native';
 import StackNavigatorMap from './stackNavigatorMap';
 import stackNavigatorOrdinary from './stackNavigatorOrdinary';
 import stackNavigatorExpress from './stackNavigatorExpress';
+import stackNavigatorTourism from './stackNavigatorTourism';
 
 const menuTabs = createBottomTabNavigator({
     Inicio: {
@@ -48,7 +49,7 @@ const menuTabs = createBottomTabNavigator({
     },
 
     Turismo: {
-        screen: stackNavigatorExpress,
+        screen: stackNavigatorTourism,
         navigationOptions: {
             tabBarLabel: 'Turismo',
             tabBarIcon: <Image
@@ -59,7 +60,6 @@ const menuTabs = createBottomTabNavigator({
             />,
         },
     },
-
 
 }, {
     tabBarOptions: {

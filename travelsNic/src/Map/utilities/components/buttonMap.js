@@ -6,11 +6,13 @@ import {
     StyleSheet
 } from 'react-native';
 
-const ButtonMap = () =>{
+const ButtonMap = (props) =>{
+
+    const { navigateToSettings } = props;
 
     return(
         <TouchableOpacity
-
+            onPress = {navigateToSettings}
         >
             <Image
                 source = {require('./../../../assets/menu/Options.png')}

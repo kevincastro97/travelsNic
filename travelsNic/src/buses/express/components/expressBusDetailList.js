@@ -12,11 +12,11 @@ import {
 
 import { withNavigation } from 'react-navigation'
 
-import SeparatorList from './../utilities/components/separatorList';
-import DetailList from './../components/DetailList';
-import Season from './../utilities/components/seasons';
+import ExpressSeparatorList from '../utilities/components/expressSeparatorList';
+import ExpressDetailList from './expressDetailList';
+import ExpressSeasons from '../utilities/components/expressSeasons';
 
-const OrdinaryBusOptionsList = (props) => {
+const ExpressBusOptionsList = (props) => {
 
     const { data , headers} = props;
 
@@ -31,13 +31,13 @@ const OrdinaryBusOptionsList = (props) => {
                     
                         ListHeaderComponent = {
                             <View>
-                                <DetailList
+                                <ExpressDetailList
                                     headers = {headers}
                                 />
                                 
-                                <Season/>
+                                <ExpressSeasons/>
                                 
-                                <SeparatorList/>
+                                <ExpressSeparatorList/>
                             </View>
                             
                         }
@@ -46,7 +46,7 @@ const OrdinaryBusOptionsList = (props) => {
                         renderItem = {
                             ({item}) => <Element item = {item}/>
                         }
-                        ItemSeparatorComponent = {() => <SeparatorList/>}
+                        ItemSeparatorComponent = {() => <ExpressSeparatorList/>}
                     />
 
                 </ScrollView>
@@ -61,7 +61,7 @@ const OrdinaryBusOptionsList = (props) => {
 
 const Element =(props) => {
 
-    const { item, onPress, } = props;
+    const { item } = props;
     
     return(
         
@@ -158,4 +158,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default withNavigation(OrdinaryBusOptionsList);
+export default withNavigation(ExpressBusOptionsList);

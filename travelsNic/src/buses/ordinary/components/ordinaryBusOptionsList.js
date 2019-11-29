@@ -157,7 +157,7 @@ const Element = (props) => {
 
 const styles = StyleSheet.create({
     fondo: {
-        backgroundColor: '#edf9fb'
+        backgroundColor: '#f4f6f9'
     },
 
     container:{

@@ -7,146 +7,232 @@ import {
     ImageBackground,
     Image,
     TouchableOpacity,
-    Dimensions,
     TextInput
 } from 'react-native';
 
-import { withNavigation } from 'react-navigation'
+import { withNavigation } from 'react-navigation';
+
+import SeparatorText from './../utilities/components/separatorText'
 
 const Login = (props) =>{
 
     return(
         <ImageBackground
-            source = {require('./../../assets/login/loginBackground.png')}
-            style = {styles.container}
+            source = {require('./../../assets/login/lBackground.png')}
+            style = {styles.imageContainer}
         >
-            <Image
-                source={require('../../assets/login/icon.png')}
-                style = {styles.image}
-            />
+            <View  style = {styles.container}>
 
-            <Text style = {styles.nameAplication}>
-                TravelsNic
-            </Text>  
+                <View style = {styles.header}>
 
-            <View style = {styles.div}/>
-
-            <View style = {styles.size}>
-
-                <Text style = {styles.textDescription}>
-                    Correo
-                </Text>
-
-                <View style = {styles.textImput}>
-
-                    <TextInput
-                        style = {styles.letterImput}
-                        placeholder = 'Correo electronico'
+                    <Image
+                        source={require('../../assets/login/icon.png')}
+                        style = {styles.image}
                     />
+
+                    <Text style = {styles.nameAplicacion}>
+                        TravelsNic
+                    </Text>
 
                 </View>
 
-                <View style = {styles.divText}/>
+                <View style = {styles.loginContainer}>
+                    <Text style = {styles.textDescription}>
+                        Correo
+                    </Text>
 
-                <Text style = {styles.textDescription}>
-                    Contraseña
-                </Text>
+                    <View style = {styles.textImput}>
 
-                <View style = {styles.textImput}>
+                        <TextInput
+                            style = {styles.letterImput}
+                            placeholder = 'Correo electronico'
+                        />
 
-                    <TextInput
-                        style = {styles.letterImput}
-                        placeholder = 'Contraseña'
-                    />
+                        <View style = {styles.centerIcon}>
+
+                        <TouchableOpacity>
+                            <Image
+                                source = {require('./../../assets/login/email.png')}
+                                style = {styles.icon}
+                            />
+                        </TouchableOpacity>
+                            
+                        </View>
+
+                    </View>
+
+                    <SeparatorText/>
+
+                    <View style = {styles.divText}/>
+
+                    <Text style = {styles.textDescription}>
+                        Contraseña
+                    </Text>
+
+                    <View style = {styles.textImput}>
+
+                        <TextInput
+                            style = {styles.letterImput}
+                            placeholder = 'Contraseña'
+                        />
+
+                        <View style = {styles.centerIcon}>
+
+                            <TouchableOpacity>
+                                <Image
+                                    source = {require('./../../assets/login/eye.png')}
+                                    style = {styles.icon}
+                                />
+                            </TouchableOpacity>
+                                
+                        </View>
+                        
+                    </View>
+
+                    <TouchableOpacity >
+                        <Text style = {styles.textRecover}>
+                            ¿Has olvidaste tu contraseña?
+                        </Text>
+                    </TouchableOpacity>
 
                 </View>
 
-                <TouchableOpacity
-                    
-                >
-                    <Text style = {styles.textRecover}>
-                        ¿Has olvidaste tu contraseña?
-                    </Text>
-                </TouchableOpacity>
+                <View style = {styles.buttonContainer}>
 
-                <TouchableOpacity 
-                    onPress={() => props.navigation.navigate('MenuTabs')}
-                    style = {styles.button}
-                >
-                    <Text style = {styles.textButton}>
-                        Iniciar sesión
-                    </Text>
-                </TouchableOpacity>
+                    <View style = {styles.containerRow}>
 
-                <TouchableOpacity
-                     onPress={() => props.navigation.navigate('Registry')}
-                >
-                    <Text style = {styles.textRegistry}>
-                        no tienes cuenta? Regístrate
-                    </Text>
-                </TouchableOpacity>
-                
-            </View>
+                        <TouchableOpacity 
+                            onPress={() => props.navigation.navigate('MenuTabs')}
+                            style = {styles.button}
+                        >
+                            <Text style = {styles.textButton}>
+                                Iniciar sesión
+                            </Text>
+                        </TouchableOpacity>
+
+                        <SeparatorText/>
+
+                        <TouchableOpacity 
+                            onPress={() => props.navigation.navigate('Registry')}
+                            style = {styles.button}
+                        >
+                            <Text style = {styles.textButton}>
+                                Registrarme
+                            </Text>
+                        </TouchableOpacity>
+
+                    </View>
+
+                    <SeparatorText/>
+
+                    <View style = {styles.containerRegistry}>
+       
+                        <Text style = {styles.text}>
+                            no tienes cuenta? 
+                        </Text>
+
+                        <View style = {styles.divVertical}/>
+                        
+                        <Text style = {styles.Registry}>
+                            Regístrate
+                        </Text>
+
+                    </View>
+
+                    <View style = {styles.end}/>
+
+                </View>
+
+            </View>  
 
         </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
-    container:{
+    imageContainer:{
         flex: 1,
-        width: '100%',
-        height: '100%',
-        alignItems: 'center',
-        width: Dimensions.get('window').width,
+        flexDirection: 'row',
+        resizeMode: 'cover',
+        justifyContent: 'space-between'
     },
+
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+        resizeMode: 'cover',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+
+    header:{
+        alignItems: 'center',
+        resizeMode: 'cover',
+        justifyContent: 'space-between',
+    },
+
     image:{
         width: 120,
         height: 120,
         borderRadius: 135,
         resizeMode: 'cover',
-        borderWidth: 4,
+        borderWidth: 3,
         borderColor: '#fff',
         marginTop: 20
     },
-    nameAplication: {
+
+    nameAplicacion:{
         fontSize: 20,
         fontWeight: 'bold',
-        color: 'white',
         marginTop: 5,
-    },
-    size: {
-        width: '80%',
+        color: '#FFFFFF'
     },
 
-    div: {
-        height: 20
-    },
-
-    divText: {
-        height: 20
+    loginContainer:{
+        //backgroundColor: '#FFFFFF',
+        borderRadius: 15,
+        width: '90%',
+        padding: 10,
+        height: '40%',
+        marginTop: 20,
+        justifyContent: 'center'
     },
 
     textDescription:{
         fontSize: 16,
-        fontWeight: 'normal',
+        fontWeight: 'bold',
         color: 'white',
-        marginTop: 10,
     },
 
     textImput:{
         backgroundColor: 'white',
         width: '100%',
-        height: 35,
+        height: 40,
         borderRadius: 50,
         marginTop: 5,
-        paddingLeft: 10,
+        paddingLeft: 8,
+        borderColor: '#37acff',
+        borderWidth: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        resizeMode: 'cover',
+    },
 
+    centerIcon: {
+        justifyContent: 'center',
+        resizeMode: 'cover',
+        alignItems: 'stretch',
+        marginHorizontal: 8
+    },
+
+    icon:{
+        width: 24,
+        height: 24,
     },
 
     letterImput:{
-        fontSize: 12,
-        lineHeight: 35
+        fontSize: 14,
+        padding: 8,
     },
 
     textRecover:{
@@ -157,12 +243,26 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
 
+    buttonContainer:{
+        borderRadius: 15,
+        width: '90%',
+        alignItems: 'center',
+    },
+    
+    containerRow: {
+        flexDirection: 'row',
+        resizeMode: 'cover',
+        justifyContent: 'space-between',
+        width: '100%',
+        alignItems: 'center'
+    },
+
     button: {
         backgroundColor: '#1878ff',
-        width: '100%',
-        height: 35,
+        width: '48%',
+        height: 30,
         borderRadius: 50,
-        marginTop: 30,
+        marginTop: 5,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -173,17 +273,36 @@ const styles = StyleSheet.create({
         color: 'white',
     },
 
-    textRegistry: {
+    containerRegistry: {
+        flexDirection: 'row',
+        resizeMode: 'cover',
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    text: {
         fontSize: 16,
-        textAlign: 'center',
+        textAlign: 'justify',
         fontWeight: 'normal',
         color: 'white',
-        marginTop: 30
     },
-    color:{
-        //backgroundColor: '#FFFFFF',
-        //backgroundColor: '#f4f6f8',
-    }
+
+    Registry : {
+        fontSize: 16,
+        textAlign: 'justify',
+        fontWeight: 'bold',
+        color: 'white',
+    },
+
+    divVertical:{
+        width: 10
+    },
+
+    end:{
+        height: 5
+    },
+
 }) 
 
 

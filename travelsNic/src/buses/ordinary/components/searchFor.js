@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         marginVertical: 10,
         flex: 1,
-        borderColor: '#069dab',
+        borderColor: '#0c64a2',
         borderWidth: 1,
     },
 
@@ -64,7 +64,9 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 40,
         marginHorizontal: 15,
-        color: 'black'
+        color: 'black',
+        fontSize: 15,
+        padding: 5
     },
 
     modal:{
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center', 
-        borderColor: '#069dab',
+        borderColor: '#0c64a2',
         borderWidth: 1
     },
 

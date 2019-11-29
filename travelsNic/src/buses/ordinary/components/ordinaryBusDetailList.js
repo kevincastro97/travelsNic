@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     address:{
         flexDirection: 'row',
         justifyContent: 'space-between',
+        width: '95%'
     },
 
     title:{
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
     },
 
     subTitle:{
-        fontSize: 15,
+        fontSize: 14,
         color: 'black',
         marginTop: 5
     }

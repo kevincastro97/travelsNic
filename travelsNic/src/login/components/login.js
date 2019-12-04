@@ -16,6 +16,8 @@ import SeparatorText from './../utilities/components/separatorText'
 
 const Login = (props) =>{
 
+    const { onChangeEmail, userEmail, onChangePassword, userPassword, startButton } = props;
+
     return(
         <ImageBackground
             source = {require('./../../assets/login/lBackground.png')}
@@ -46,6 +48,9 @@ const Login = (props) =>{
                         <TextInput
                             style = {styles.letterImput}
                             placeholder = 'Correo electronico'
+                            autoCompleteType = 'email'
+                            onChangeText={onChangeEmail}
+                            value={userEmail}
                         />
 
                         <View style = {styles.centerIcon}>
@@ -74,6 +79,9 @@ const Login = (props) =>{
                         <TextInput
                             style = {styles.letterImput}
                             placeholder = 'Contraseña'
+                            secureTextEntry = {true} 
+                            onChangeText={onChangePassword}
+                            value={userPassword}   
                         />
 
                         <View style = {styles.centerIcon}>
@@ -104,6 +112,7 @@ const Login = (props) =>{
                         <TouchableOpacity 
                             onPress={() => props.navigation.navigate('MenuTabs')}
                             style = {styles.button}
+                            onPress = {startButton}
                         >
                             <Text style = {styles.textButton}>
                                 Iniciar sesión
@@ -115,6 +124,7 @@ const Login = (props) =>{
                         <TouchableOpacity 
                             onPress={() => props.navigation.navigate('Registry')}
                             style = {styles.button}
+                            onPress = {}
                         >
                             <Text style = {styles.textButton}>
                                 Registrarme

@@ -124,7 +124,7 @@ const Login = (props) =>{
                         <TouchableOpacity 
                             onPress={() => props.navigation.navigate('Registry')}
                             style = {styles.button}
-                            onPress = {}
+                            
                         >
                             <Text style = {styles.textButton}>
                                 Registrarme

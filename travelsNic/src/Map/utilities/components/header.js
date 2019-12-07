@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
     fondColor: {
         backgroundColor: '#193555',
         width: '100%',
-        height: 160,
-        borderRadius: 30,
+        height: 140,
+        borderRadius: 25,
         flexDirection: 'column',
         justifyContent: 'space-between',
         resizeMode: 'contain',
@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        width: 55,
-        height: 55,
+        width: 40,
+        height: 40,
     },
 
     directionColumn: {
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
 
     name:{
         marginHorizontal: 15,
-        fontSize: 20,
+        fontSize: 15,
         fontWeight: 'bold',
         color: '#FFFFFF'
     },
@@ -157,8 +157,8 @@ const styles = StyleSheet.create({
     },
 
     iconButton:{
-        width: 25,
-        height: 25,
+        width: 15,
+        height: 15,
     },
 
     textImput:{

@@ -2,7 +2,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 
-import Login from './../../login/components/login';
+import Login from './../../login/containers/loginContainer';
 import Registry from './../../registry/components/registry';
 import MenuTabs from './../../menu/components/navigationTabs';
 

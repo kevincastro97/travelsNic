@@ -1,81 +1,94 @@
 import React, {Component} from 'react';
 import firebase from 'react-native-firebase';
 
+import { withNavigation } from 'react-navigation';
+
 import Login from '../components/login';
-import Registro from './../../registry/components/registry'
+
+import {
+    Alert,
+} from 'react-native';
 
 class LoginContainer extends Component {
 
     constructor(props){
-        super();
+        super(props);
 
-        this.unsubscribe = null
+        this.unsubscriber = null;
 
         this.state = {
-            user: null,
             userEmail: '',
-            userPassword: ''
+            userPassword: '',
+            user: null,
         }
     }
 
-    componentDidMount(){
-        this.unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-            this.setState({ user });
-          });
-    }
-
-
-    componentWillUnmount() {
-        if (this.unsubscribe) {
-          this.unsubscribe();
+    componentDidMount() {
+        this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
+          this.setState({ user });
+        });
+      }
+    
+      componentWillUnmount() {
+        if (this.unsubscriber) {
+          this.unsubscriber();
         }
       }
+    
+    login = () => {
 
-    login = (userEmail, userPassword) =>{
-        try{
+        const { userEmail, userPassword, } = this.state;
+        
         firebase
         .auth()
         .signInWithEmailAndPassword (userEmail, userPassword)
         .then (res => {
-            console.log(res.user.email);
+            this.setState({
+                user: res.user,
+            });
         })
-        } catch(error){
-        onsole.log(error.toString(error));
-        }
+        .catch((error) => {
+            Alert.alert("Error ", userEmail + " " + userPassword + ". " + error.message);
+        });
+
     }
 
     onChangeEmail = (email) =>{
         this.setState({
-            userEmail = email
+            userEmail: email
         })
     }
 
     onChangePassword = (password) =>{
         this.setState({
-            userPassword = password
+            userPassword: password
         })
     }
 
+    onChangeNavigationRegistry = () =>{
+        this.props.navigation.navigate('Registry')
+    }
 
     render() {
-
-        const { } = props;
-
-        if (!this.state.user) {
-            return(
-                <Login
-                    onChangeEmail = { }
-                    userEmail = { }
-                    onChangePassword = { }
-                    userPassword = { }
-                />
-            ); 
+        const {
+            userEmail,
+            userPassword,
+        } = this.state;
+        
+        if (this.state.user) {
+            this.props.navigation.navigate('MenuTabs');
         }
-
-        return (
-            <Registro/>
-        );
+        return(
+            <Login
+                onChangeEmail = {this.onChangeEmail}
+                userEmail = {userEmail}
+                onChangePassword = {this.onChangePassword}
+                userPassword = {userPassword}
+                startButton={ this.login }
+                registryButtonNavigation ={ this.onChangeNavigationRegistry }
+            />
+        ); 
     }    
 }
 
-export default LoginContainer;
+export default withNavigation(LoginContainer);

@@ -10,13 +10,11 @@ import {
     TextInput
 } from 'react-native';
 
-import { withNavigation } from 'react-navigation';
-
 import SeparatorText from './../utilities/components/separatorText'
 
 const Login = (props) =>{
 
-    const { onChangeEmail, userEmail, onChangePassword, userPassword, startButton } = props;
+    const { onChangeEmail, userEmail, onChangePassword, userPassword, startButton, registryButtonNavigation } = props;
 
     return(
         <ImageBackground
@@ -110,9 +108,8 @@ const Login = (props) =>{
                     <View style = {styles.containerRow}>
 
                         <TouchableOpacity 
-                            onPress={() => props.navigation.navigate('MenuTabs')}
                             style = {styles.button}
-                            onPress = {startButton}
+                            onPress={startButton}
                         >
                             <Text style = {styles.textButton}>
                                 Iniciar sesión
@@ -122,9 +119,8 @@ const Login = (props) =>{
                         <SeparatorText/>
 
                         <TouchableOpacity 
-                            onPress={() => props.navigation.navigate('Registry')}
+                            onPress = {registryButtonNavigation}
                             style = {styles.button}
-                            
                         >
                             <Text style = {styles.textButton}>
                                 Registrarme
@@ -316,4 +312,4 @@ const styles = StyleSheet.create({
 }) 
 
 
-export default withNavigation(Login);
+export default Login;

@@ -5,9 +5,9 @@
 import {AppRegistry} from 'react-native';
 import RegistryContainer from './src/registry/containers/registryContainer'
 import NavigationTabs from './src/menu/components/loginNavigator';
-
-import ModalTester from './src/modal'
+import ProviderLit from './appWithProvider'
+import ModalTester from './src/modalContainer'
 
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => NavigationTabs);
+AppRegistry.registerComponent(appName, () => ProviderLit);

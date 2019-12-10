@@ -8,16 +8,25 @@ import {
     TouchableOpacity
 } from 'react-native';
 
-import Effect from './../utilities/effect'
+import Effect from './../../utilities/effect'
 
-const MenuTourism = () => {
+const MenuTourism = (props) => {
+
+    const {
+        navigationToHotelAndRestaurant,
+        navigationToSmallBusiness,
+        navigationToTuristicCentres
+    } = props;
+
     return(
         <View style = {styles.container}>
 
             <View style = {styles.fond}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress = {navigationToHotelAndRestaurant}
+                >
                     <Image
-                        source = {require('./../../assets/hotel.jpg')}
+                        source = {require('./../../../assets/hotel.jpg')}
                         style = {styles.image}
                     />
 
@@ -31,9 +40,11 @@ const MenuTourism = () => {
             </View>
             
             <View style = {styles.fond}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress = {navigationToTuristicCentres}
+                >
                     <Image
-                        source = {require('./../../assets/turismo.jpg')}
+                        source = {require('./../../../assets/turismo.jpg')}
                         style = {styles.image}
                     />
 
@@ -47,9 +58,11 @@ const MenuTourism = () => {
             </View>
 
             <View style = {styles.fond}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress = {navigationToSmallBusiness}
+                >
                     <Image
-                        source = {require('./../../assets/negocios.jpg')}
+                        source = {require('./../../../assets/negocios.jpg')}
                         style = {styles.image}
                     />
 

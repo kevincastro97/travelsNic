@@ -65,7 +65,7 @@ const menuTabs = createBottomTabNavigator({
     tabBarOptions: {
         activeTintColor: 'white',
         inactiveTintColor: 'black',
-        activeBackgroundColor: '#069dab'
+        activeBackgroundColor: '#4d739f'
     },
 });
 

@@ -83,19 +83,14 @@ const ExpressSearchFor = (props) => {
 
                     <View style = {styles.buttonContainer}>
 
-                        <View style = {styles.containerRow}>
-
-                            <TouchableOpacity 
-                                onPress = {onChangeClose}
-                                style = {styles.button}
-                            >
-                                <Text style = {styles.textButton}>
-                                    Aceptar
-                                </Text>
-                            </TouchableOpacity>
-
-                        </View>
-
+                        <TouchableOpacity 
+                            onPress = {onChangeClose}
+                            style = {styles.button}
+                        >
+                            <Text style = {styles.textButton}>
+                                Aceptar
+                            </Text>
+                        </TouchableOpacity>
                         
                     <Separator/>
 
@@ -191,12 +186,12 @@ const styles = StyleSheet.create({
     modalContainer:{
         backgroundColor: '#FFFFFF',
         width: '90%',
-        height: '60%',
+        height: '45%',
         borderRadius: 20,
-        borderColor: '#0c64a2',
+        borderColor: 'gray',
         borderWidth: 1,
         marginHorizontal: 18,
-        marginVertical: 140,
+        marginVertical: 200,
         padding: 10,
         justifyContent: 'space-between',
         flexDirection: 'column',
@@ -207,21 +202,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between'
     },
-    
-    containerRow: {
-        flexDirection: 'row',
-        resizeMode: 'cover',
-        justifyContent: 'space-between',
-        width: '100%',
-    },
 
     button: {
         backgroundColor: '#1878ff',
-        width: '45%',
-        height: 30,
+        width: '50%',
+        height: 35,
         borderRadius: 50,
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 20
     },
 
     textButton: {

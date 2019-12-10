@@ -69,7 +69,7 @@ const Element =(props) => {
 
             <View style = {styles.key}>
                 <Text style = {styles.titleKey}> 
-                    {item.key}
+                    {item.key} 
                 </Text>    
             </View>
 
@@ -103,7 +103,7 @@ const Element =(props) => {
 
 const styles = StyleSheet.create({
     fondo:{
-        backgroundColor: '#edf9fb',
+        backgroundColor: '#f4f6f9',
     },
 
     container:{

@@ -16,7 +16,7 @@ import ExpressSeparatorList from '../utilities/components/expressSeparatorList';
 import ExpressDetailList from './expressDetailList';
 import ExpressSeasons from '../utilities/components/expressSeasons';
 
-const ExpressBusOptionsList = (props) => {
+const ExpressBusOptionsList = (props) => { 
 
     const { data , headers} = props;
 
@@ -103,7 +103,7 @@ const Element =(props) => {
 
 const styles = StyleSheet.create({
     fondo:{
-        backgroundColor: '#edf9fb',
+        backgroundColor: '#f4f6f9',
     },
 
     container:{

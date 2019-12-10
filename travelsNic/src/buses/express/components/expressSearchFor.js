@@ -1,5 +1,4 @@
 import React from 'react';
-import { withNavigation } from 'react-navigation'
 
 import {
     View,
@@ -7,24 +6,116 @@ import {
     Image,
     TouchableOpacity,
     StyleSheet,
+    Modal,
+    Text
 
 } from 'react-native';
 
+import Separator from './../utilities/components/expressTextDivider'
+
 const ExpressSearchFor = (props) => {
+
+    const {
+        modalVisible,
+        onChangeOpen,
+        onChangeClose,
+        onSearch,
+        searchText,
+        originSearchText,
+        onChangeOriginSearchText,
+        departmentSearchText,
+        onChangeDepartmentSearchText,
+    } = props;
 
     return (
         
         <View style={styles.container}>
+
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+            >
+                <View style={styles.modalContainer}>
+
+                    <View style={styles.center}>
+                        <Text style = {styles.textDescriptiontitle}>
+                            Filtro de Autobuses Expresos
+                        </Text>
+                    </View>
+
+                    <View>
+                        <Text style = {styles.textDescription}>
+                            Departamento
+                        </Text>
+
+                        <Separator/>
+
+                        <View style = {styles.textImput}>
+
+                        <TextInput
+                            style = {styles.letterImput}
+                            placeholder = 'Nombre del Departamento'
+                            value={departmentSearchText}
+                            onChangeText={onChangeDepartmentSearchText}
+                        />
+
+                        </View>
+                    </View>
+                    
+
+                    <View>
+                        <Text style = {styles.textDescription}>
+                            Origen
+                        </Text>
+
+                        <Separator />
+
+                        <View style = {styles.textImput}>
+                            <TextInput
+                                style = {styles.letterImput}
+                                placeholder = 'Nombre del Origen'
+                                value={originSearchText}
+                                onChangeText={onChangeOriginSearchText}
+                            />
+                        </View>
+                    </View>
+
+                    <View style = {styles.buttonContainer}>
+
+                        <View style = {styles.containerRow}>
+
+                            <TouchableOpacity 
+                                onPress = {onChangeClose}
+                                style = {styles.button}
+                            >
+                                <Text style = {styles.textButton}>
+                                    Aceptar
+                                </Text>
+                            </TouchableOpacity>
+
+                        </View>
+
+                        
+                    <Separator/>
+
+                    </View>
+
+                </View>
+            </Modal>
+
             <View style={styles.seeker}>
                 <TextInput
                     style={styles.textBox}
                     placeholder='Buscar...'
                     placeholderTextColor={'#aaaeae'}
+                    value={searchText}
+                    onChangeText={onSearch}
                 />
             </View>
 
             <TouchableOpacity
-                onPress = {()=> props.navigation.navigate('OrdinaryDetail')}
+                onPress = {onChangeOpen}
             >
                 <View  style={styles.modal}>
                     <Image
@@ -45,6 +136,13 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+
+    center:{
+        width: '100%',
+        alignItems: 'center',
+        marginVertical: 20
     },
 
     seeker: {
@@ -88,8 +186,79 @@ const styles = StyleSheet.create({
     image:{
         height: 20,
         width: 20
-    }
+    },
+
+    modalContainer:{
+        backgroundColor: '#FFFFFF',
+        width: '90%',
+        height: '60%',
+        borderRadius: 20,
+        borderColor: '#0c64a2',
+        borderWidth: 1,
+        marginHorizontal: 18,
+        marginVertical: 140,
+        padding: 10,
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+    },
+
+    buttonContainer:{
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    
+    containerRow: {
+        flexDirection: 'row',
+        resizeMode: 'cover',
+        justifyContent: 'space-between',
+        width: '100%',
+    },
+
+    button: {
+        backgroundColor: '#1878ff',
+        width: '45%',
+        height: 30,
+        borderRadius: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    textButton: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'white',
+        marginTop: 5
+    },
+
+    textImput:{
+        backgroundColor: 'white',
+        width: '100%',
+        height: 35,
+        borderRadius: 50,
+        paddingLeft: 8,
+        borderColor: '#37acff',
+        borderWidth: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        resizeMode: 'cover',
+    },
+    letterImput:{
+        fontSize: 14,
+        padding: 8,
+    },
+    textDescription:{
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: '#000000',
+    },
+
+    textDescriptiontitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#000000',
+    },
+
 }); 
 
-
-export default withNavigation(ExpressSearchFor);
+export default ExpressSearchFor

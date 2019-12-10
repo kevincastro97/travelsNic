@@ -8,7 +8,8 @@ import {
     StyleSheet,
     SafeAreaView,
     Image,
-    ScrollView
+    ScrollView,
+    RefreshControl,
 } from 'react-native';
 
 import ExpressSearchForContainer from '../containers/expressSearchForContainer';
@@ -19,25 +20,51 @@ import ExpressSeparatorLine from '../utilities/components/expressSeparatorLine';
 
 const ExpressBusOptionsList = (props) => {
 
-    const { data, navigateToExpressDetail } = props;
+    const {
+        data,
+        navigateToExpressDetail,
+        refreshing,
+        onRefresh,
+        searchText,
+        onSearch,
+        originSearchText,
+        onChangeOriginSearchText,
+        departmentSearchText,
+        onChangeDepartmentSearchText,
+    } = props;
 
     return(
         <SafeAreaView  style = {styles.fondo}>
 
-            <View >
+            <View style={styles.list}>
 
                 <ScrollView>
 
                     <FlatList 
+                    style={styles.list}
+
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={refreshing}
+                                onRefresh={onRefresh}
+                            />
+                        }
 
                         ListHeaderComponent={
-                            <ExpressSearchForContainer/>
+                            <ExpressSearchForContainer
+                                searchText={searchText}
+                                onSearch={onSearch}
+                                originSearchText={originSearchText}
+                                onChangeOriginSearchText={onChangeOriginSearchText}
+                                departmentSearchText={departmentSearchText}
+                                onChangeDepartmentSearchText={onChangeDepartmentSearchText}
+                            />
                         }
                         
                         data = { data }
                         ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                         renderItem = {
-                            ({item}) => <Element item = {item}  onPress = {navigateToExpressDetail}/>
+                            ({item}) => <Element item = {item}  onPress = {() => { navigateToExpressDetail(item); }}/>
                         }
                         ItemSeparatorComponent = {() => <ExpressSeparatorList/>}
                     />
@@ -65,7 +92,7 @@ const Element = (props) => {
                 <View style = {styles.containerAddress}>
 
                     <Image
-                        source = {item.image}
+                        source = {{ uri: item.image }}
                         style = {styles.images}
                     />
 
@@ -147,8 +174,6 @@ const Element = (props) => {
 
                 </View>
 
-                <Text>Detalles de horario y tiempo</Text>
-
             </View>
 
         </TouchableOpacity>
@@ -157,7 +182,11 @@ const Element = (props) => {
 
 const styles = StyleSheet.create({
     fondo: {
-        backgroundColor: '#edf9fb'
+        backgroundColor: '#f4f6f9'
+    },
+
+    list: {
+        minHeight: '100%',
     },
 
     container:{
@@ -181,7 +210,9 @@ const styles = StyleSheet.create({
 
     images:{
         width: 80,
-        height: 80
+        height: 80,
+        backgroundColor: '#eee',
+        borderRadius: 40,
     },
 
     containerText: {

@@ -10,12 +10,11 @@ const ExpressDetailList = (props) =>{
 
     const  { headers } = props;
 
-
     return(
         <View style = {styles.container}>
             
             <Image
-                source = {require('./../../../assets/bus.png')}
+                source = {{ uri: headers.image }}
                 style = {styles.image}
             />
 

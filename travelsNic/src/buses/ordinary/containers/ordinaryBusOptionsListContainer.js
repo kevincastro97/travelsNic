@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 
 import {
-    withNavigation
-} from 'react-navigation';
-
-import {
     getOrdinaryLines,
-} from './../../../../lib/data/ordinary-lines-data';
+} from './../../../../lib/data/ordinary-lines-data'; 
 
 import OrdinaryBusOptionsList from './../components/ordinaryBusOptionsList';
 

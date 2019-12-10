@@ -171,8 +171,6 @@ const Element = (props) => {
 
                 </View>
 
-                <Text>Detalles de horario y tiempo</Text>
-
             </View>
 
         </TouchableOpacity>

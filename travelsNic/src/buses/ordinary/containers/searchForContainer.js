@@ -29,6 +29,15 @@ class SearchForContainer extends Component {
 
     const { modalVisible } = this.state;
 
+    const {
+      onSearch,
+      searchText,
+      originSearchText,
+      onChangeOriginSearchText,
+      departmentSearchText,
+      onChangeDepartmentSearchText,
+    } = this.props;
+
 
     return(
       
@@ -36,6 +45,12 @@ class SearchForContainer extends Component {
         modalVisible = {modalVisible}
         onChangeOpen = {this.onChangeOpen}
         onChangeClose = {this.onChangeClose}
+        onSearch={onSearch}
+        searchText={searchText}
+        originSearchText={originSearchText}
+        onChangeOriginSearchText={onChangeOriginSearchText}
+        departmentSearchText={departmentSearchText}
+        onChangeDepartmentSearchText={onChangeDepartmentSearchText}
       />
         
     );

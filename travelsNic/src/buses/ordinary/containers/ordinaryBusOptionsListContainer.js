@@ -4,125 +4,145 @@ import {
     withNavigation
 } from 'react-navigation';
 
-import { connect } from 'react-redux';
-
-import firebase from 'react-native-firebase'
+import {
+    getOrdinaryLines,
+} from './../../../../lib/data/ordinary-lines-data';
 
 import OrdinaryBusOptionsList from './../components/ordinaryBusOptionsList';
-
-import {
-    dataLine,
-    filterDataLine,
-} from './../../../state/actions/linesAction'
-
 
 class OrdinaryBusOptionsListContainer extends Component {
 
     constructor(props){
-        super(props)
-
-        this.ref = firebase.firestore().collection('ordinaryLines');
-        this.unsubscribe = null;
+        super(props);
         this.state = {
-            data: []
+            loadingState: 'cargando',
+            data: [],
+            searchText: '',
+            originSearchText: '',
+            departmentSearchText: '',
         };
     }
 
-    navigateToOrdinaryDetail = () =>{
-        this.props.navigation.navigate('OrdinaryDetail')
-    }
-
-    componentDidMount(){
-
-        const db = firebase.firestore();
-        db.collection('ordinaryLines').onSnapshot((instantanea) => {
-            const { data } = this.state;
-
-            this.setState({
-                data: data,
-            });
-        });
-
-        if(this.props.idCuidad){
-            this.unsubscribe = this.ref.where('idCuidad', '==', this.props.idCuidad).onSnapshot(this.onCollectionUpdate)
-        }
-        else {
-            this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        if(this.props.idCuidad !== prevProps.idCuidad) {
-            if(this.props.idCuidad) {
-                this.unsubscribe = this.ref.where("idCuidad", "==", this.props.idCuidad).onSnapshot(this.onCollectionUpdate)
-            }
-            else {
-                this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
-            }
-        }
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
-
-    addLinea = (title, price, passengers, line, image, departureTime, arrivalTime) => {
-        this.ref.add({
-            title: title,
-            line: line,
-            price: price,
-            passengers: passengers,
-            image: image,
-            departureTime: departureTime,
-            arrivalTime: arrivalTime
-        });
-    };
-
-    onCollectionUpdate = (querySnapshot) => {
-        const data = [];
-        querySnapshot.forEach((doc) => {
-            const { title, price, passengers, line, image, departureTime, arrivalTime } = doc.data();
-            data.push({
-                key: doc.id,
-                title,
-                price,
-                passengers,
-                line,
-                image,
-                departureTime,
-                arrivalTime
-            });
-        });
-        this.props.dataLine(data);
+    navigateToOrdinaryDetail = (ordinaryLines) => {
+        this.props.navigation.navigate('OrdinaryDetail', {
+            ordinaryLines: ordinaryLines,
+        })
     }
 
     render(){
 
-        const { data } = this.state
+        const {
+            loadingState,
+            searchText,
+            originSearchText,
+            departmentSearchText,
+        } = this.state
 
         return(
             <OrdinaryBusOptionsList
-                data = {data}
+                data = {this.handleFilterAdvanced()}
+                refreshing={loadingState === 'cargando' ? true : false}
+                onRefresh={this.handleRefresh}
                 navigateToOrdinaryDetail = {this.navigateToOrdinaryDetail}
+                searchText={searchText}
+                onSearch={this.handleSearch}
+                originSearchText={originSearchText}
+                onChangeOriginSearchText={this.handleChangeOriginSearchText}
+                departmentSearchText={departmentSearchText}
+                onChangeDepartmentSearchText={this.handleChangeDepartmentSearchText}
             />
         );
-
     }
+
+    componentDidMount() {
+        this.loadOrdinaryLinesData();
+    }
+
+    loadOrdinaryLinesData = () => {
+
+        this.setState({
+            loadingState: 'cargando',
+        });
+
+        getOrdinaryLines()
+        .then((ordinaryLinesArray) => {
+
+            console.log(ordinaryLinesArray);
+            
+            this.setState({
+                loadingState: 'cargado',
+                data: ordinaryLinesArray,
+            });
+
+        })
+        .catch((error) => {
+            
+            this.setState({
+                loadingState: 'error',
+                error: error,
+            });
+            
+        });
+
+    };
+
+    handleRefresh = () => {
+        this.loadOrdinaryLinesData();
+    };
+
+    handleSearch = (searchText) => {
+        this.setState({
+            searchText: searchText,
+        });
+    };
+
+    handleChangeDepartmentSearchText = (departmentSearchText) => {
+        this.setState({
+            departmentSearchText: departmentSearchText,
+        });
+    };
+
+    handleChangeOriginSearchText = (originSearchText) => {
+        this.setState({
+            originSearchText: originSearchText,
+        });
+    };
+
+    handleFilterAdvanced = () => {
+        const {
+            searchText,
+            originSearchText,
+            departmentSearchText,
+            data,
+        } = this.state;
+        
+        if(!searchText && !originSearchText && !departmentSearchText) return data;
+
+        let arrayFilter = data;
+
+        if(searchText) {
+            arrayFilter = arrayFilter.filter((item) => {
+                return item.title.toLowerCase().includes(searchText.toLowerCase());
+            });
+        }
+        console.log('Filtros: ', arrayFilter);
+
+        if(originSearchText) {
+            arrayFilter = arrayFilter.filter((item) => {
+                return item.origin.toLowerCase().includes(originSearchText.toLowerCase());
+            });
+        }
+
+        if(departmentSearchText) {
+            arrayFilter = arrayFilter.filter((item) => {
+                return item.department.toLowerCase().includes(departmentSearchText.toLowerCase());
+            });
+        }
+
+        return arrayFilter;
+        
+    };
+
 }
 
-const mapStateToProps = (newState ) => {
-
-    let { lines } = newState;
-
-    return {
-        data: lines.data,
-        ciudadId: lines.id,
-    };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-    dataLine: (data) => dispatch(dataLine(data)),
-    filterDataLine: (id) => dispatch(filterDataLine(id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(OrdinaryBusOptionsListContainer);
+export default OrdinaryBusOptionsListContainer;

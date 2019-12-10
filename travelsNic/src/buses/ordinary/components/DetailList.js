@@ -15,7 +15,7 @@ const DetailList = (props) =>{
         <View style = {styles.container}>
             
             <Image
-                source = {require('./../../../assets/bus.png')}
+                source = {{ uri: headers.image }}
                 style = {styles.image}
             />
 

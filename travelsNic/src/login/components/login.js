@@ -14,7 +14,15 @@ import SeparatorText from './../utilities/components/separatorText'
 
 const Login = (props) =>{
 
-    const { onChangeEmail, userEmail, onChangePassword, userPassword, startButton, registryButtonNavigation } = props;
+    const {
+        onChangeEmail,
+        userEmail,
+        onChangePassword,
+        userPassword,
+        startButton,
+        registryButtonNavigation,
+        loadingState,
+    } = props;
 
     return(
         <ImageBackground
@@ -49,6 +57,7 @@ const Login = (props) =>{
                             autoCompleteType = 'email'
                             onChangeText={onChangeEmail}
                             value={userEmail}
+                            editable={loadingState === 'cargando' ? false : true }
                         />
 
                         <View style = {styles.centerIcon}>
@@ -79,7 +88,8 @@ const Login = (props) =>{
                             placeholder = 'Contraseña'
                             secureTextEntry = {true} 
                             onChangeText={onChangePassword}
-                            value={userPassword}   
+                            value={userPassword}
+                            editable={loadingState === 'cargando' ? false : true }
                         />
 
                         <View style = {styles.centerIcon}>
@@ -110,6 +120,7 @@ const Login = (props) =>{
                         <TouchableOpacity 
                             style = {styles.button}
                             onPress={startButton}
+                            disabled={ loadingState=== 'cargando' ? true : false }
                         >
                             <Text style = {styles.textButton}>
                                 Iniciar sesión

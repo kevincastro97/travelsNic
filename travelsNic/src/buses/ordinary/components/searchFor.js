@@ -16,7 +16,17 @@ import Separator from './../utilities/components/textDivider'
 
 export  const SearchFor = (props) => {
 
-    const { modalVisible, onChangeOpen, onChangeClose } = props;
+    const {
+        modalVisible,
+        onChangeOpen,
+        onChangeClose,
+        onSearch,
+        searchText,
+        originSearchText,
+        onChangeOriginSearchText,
+        departmentSearchText,
+        onChangeDepartmentSearchText,
+    } = props;
 
     return (
         
@@ -47,6 +57,8 @@ export  const SearchFor = (props) => {
                         <TextInput
                             style = {styles.letterImput}
                             placeholder = 'Nombre del Departamento'
+                            value={departmentSearchText}
+                            onChangeText={onChangeDepartmentSearchText}
                         />
 
                         </View>
@@ -58,15 +70,15 @@ export  const SearchFor = (props) => {
                             Origen
                         </Text>
 
-                        <Separator/>
+                        <Separator />
 
                         <View style = {styles.textImput}>
-
-                        <TextInput
-                            style = {styles.letterImput}
-                            placeholder = 'Nombre del Origen'
-                        />
-
+                            <TextInput
+                                style = {styles.letterImput}
+                                placeholder = 'Nombre del Origen'
+                                value={originSearchText}
+                                onChangeText={onChangeOriginSearchText}
+                            />
                         </View>
                     </View>
 
@@ -76,14 +88,6 @@ export  const SearchFor = (props) => {
 
                             <TouchableOpacity 
                                 onPress = {onChangeClose}
-                                style = {styles.button}
-                            >
-                                <Text style = {styles.textButton}>
-                                    Cancelar
-                                </Text>
-                            </TouchableOpacity>
-
-                            <TouchableOpacity 
                                 style = {styles.button}
                             >
                                 <Text style = {styles.textButton}>
@@ -106,6 +110,8 @@ export  const SearchFor = (props) => {
                     style={styles.textBox}
                     placeholder='Buscar...'
                     placeholderTextColor={'#aaaeae'}
+                    value={searchText}
+                    onChangeText={onSearch}
                 />
             </View>
 

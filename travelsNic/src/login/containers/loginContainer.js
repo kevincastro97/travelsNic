@@ -17,6 +17,7 @@ class LoginContainer extends Component {
         this.unsubscriber = null;
 
         this.state = {
+            loadingState: '',
             userEmail: '',
             userPassword: '',
             user: null,
@@ -38,6 +39,10 @@ class LoginContainer extends Component {
     login = () => {
 
         const { userEmail, userPassword, } = this.state;
+
+        this.setState({
+            loadingState: 'cargando',
+        });
         
         firebase
         .auth()
@@ -45,9 +50,15 @@ class LoginContainer extends Component {
         .then (res => {
             this.setState({
                 user: res.user,
+                loadingState: 'cargado',
             });
+            this.props.navigation.navigate('MenuTabs');
         })
         .catch((error) => {
+            this.setState({
+                loadingState: 'error',
+                error: error,
+            });
             Alert.alert("Error ", userEmail + " " + userPassword + ". " + error.message);
         });
 
@@ -73,13 +84,12 @@ class LoginContainer extends Component {
         const {
             userEmail,
             userPassword,
+            loadingState,
         } = this.state;
         
-        if (this.state.user) {
-            this.props.navigation.navigate('MenuTabs');
-        }
         return(
             <Login
+                loadingState={loadingState}
                 onChangeEmail = {this.onChangeEmail}
                 userEmail = {userEmail}
                 onChangePassword = {this.onChangePassword}

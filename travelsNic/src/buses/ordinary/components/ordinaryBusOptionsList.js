@@ -8,7 +8,8 @@ import {
     StyleSheet,
     SafeAreaView,
     Image,
-    ScrollView
+    ScrollView,
+    RefreshControl,
 } from 'react-native';
 
 import SearchForContainer from './../containers/searchForContainer';
@@ -19,30 +20,53 @@ import SeparatorLine from './../utilities/components/separatorLine';
 
 const OrdinaryBusOptionsList = (props) => {
 
-    const { data, navigateToOrdinaryDetail } = props;
+    const {
+        data,
+        navigateToOrdinaryDetail,
+        refreshing,
+        onRefresh,
+        searchText,
+        onSearch,
+        originSearchText,
+        onChangeOriginSearchText,
+        departmentSearchText,
+        onChangeDepartmentSearchText,
+    } = props;
 
     return(
         <SafeAreaView  style = {styles.fondo}>
 
-            <View >
+            <View style={styles.list}>
 
-                <ScrollView>
+            <FlatList
 
-                    <FlatList 
+                style={styles.list}
 
-                        ListHeaderComponent={
-                            <SearchForContainer/>
-                        }
-                        
-                        data = { data }
-                        ListEmptyComponent = {() => <Text>Componente de texto</Text>}
-                        renderItem = {
-                            ({item}) => <Element item = {item}  onPress = {navigateToOrdinaryDetail}/>
-                        }
-                        ItemSeparatorComponent = {() => <SeparatorList/>}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={refreshing}
+                        onRefresh={onRefresh}
                     />
+                }
 
-                </ScrollView>
+                ListHeaderComponent={
+                    <SearchForContainer
+                        searchText={searchText}
+                        onSearch={onSearch}
+                        originSearchText={originSearchText}
+                        onChangeOriginSearchText={onChangeOriginSearchText}
+                        departmentSearchText={departmentSearchText}
+                        onChangeDepartmentSearchText={onChangeDepartmentSearchText}
+                    />
+                }
+
+                data = { data }
+                ListEmptyComponent = {() => <Text>Componente de texto</Text>}
+                renderItem = {
+                    ({item}) => <Element item = {item}  onPress = {() => { navigateToOrdinaryDetail(item); }}/>
+                }
+                ItemSeparatorComponent = {() => <SeparatorList/>}
+            />
 
             </View>
 
@@ -65,7 +89,7 @@ const Element = (props) => {
                 <View style = {styles.containerAddress}>
 
                     <Image
-                        source = {item.image}
+                        source = {{ uri: item.image }}
                         style = {styles.images}
                     />
 
@@ -159,6 +183,9 @@ const styles = StyleSheet.create({
     fondo: {
         backgroundColor: '#f4f6f9'
     },
+    list: {
+        minHeight: '100%',
+    },
 
     container:{
         flexDirection: 'column',
@@ -181,7 +208,9 @@ const styles = StyleSheet.create({
 
     images:{
         width: 80,
-        height: 80
+        height: 80,
+        backgroundColor: '#eee',
+        borderRadius: 40,
     },
 
     containerText: {

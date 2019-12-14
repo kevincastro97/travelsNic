@@ -31,8 +31,14 @@ class SearchForContainer extends Component {
 
     const {
       onSearch,
+      searchText,
+      originSearchText,
+      onChangeOriginSearchText,
+      departmentSearchText,
+      onChangeDepartmentSearchText,
     } = this.props;
-    
+
+
     return(
       
       <SearchFor
@@ -40,6 +46,11 @@ class SearchForContainer extends Component {
         onChangeOpen = {this.onChangeOpen}
         onChangeClose = {this.onChangeClose}
         onSearch={onSearch}
+        searchText={searchText}
+        originSearchText={originSearchText}
+        onChangeOriginSearchText={onChangeOriginSearchText}
+        departmentSearchText={departmentSearchText}
+        onChangeDepartmentSearchText={onChangeDepartmentSearchText}
       />
         
     );

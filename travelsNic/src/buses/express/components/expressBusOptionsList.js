@@ -25,7 +25,7 @@ const ExpressBusOptionsList = (props) => {
         navigateToExpressDetail,
         refreshing,
         onRefresh,
-        searchText,
+        searchText, 
         onSearch,
         originSearchText,
         onChangeOriginSearchText,
@@ -62,7 +62,7 @@ const ExpressBusOptionsList = (props) => {
                         }
                         
                         data = { data }
-                        ListEmptyComponent = {() => <Text>Componente de texto</Text>}
+                        ListEmptyComponent = {() => <Text>Cargando información</Text>}
                         renderItem = {
                             ({item}) => <Element item = {item}  onPress = {() => { navigateToExpressDetail(item); }}/>
                         }

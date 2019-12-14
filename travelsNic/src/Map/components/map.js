@@ -3,7 +3,8 @@ import React from 'react'
 import Headerd from './../utilities/containers/headerContainer'
 
 import {
-    View,Text,
+    View,
+    Image
 } from 'react-native'
 
 const Map =(props)=>{
@@ -13,7 +14,9 @@ const Map =(props)=>{
 
             <Headerd/>
 
-            <Text>Pantalla del mapa</Text>
+            <Image
+                source = {require('./../../assets/mapa.png')}
+            />
         </View>
     );
 }

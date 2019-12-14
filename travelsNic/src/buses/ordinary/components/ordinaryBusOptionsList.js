@@ -61,7 +61,7 @@ const OrdinaryBusOptionsList = (props) => {
                 }
 
                 data = { data }
-                ListEmptyComponent = {() => <Text>Componente de texto</Text>}
+                ListEmptyComponent = {() => <Text>Cargando información</Text>}
                 renderItem = {
                     ({item}) => <Element item = {item}  onPress = {() => { navigateToOrdinaryDetail(item); }}/>
                 }

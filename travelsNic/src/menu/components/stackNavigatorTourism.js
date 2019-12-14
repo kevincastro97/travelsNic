@@ -3,7 +3,8 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 
 import Tourism from './../../tourism/menuTourism/containers/tourismMenuContainer';
-import HotelAndRestaurant from './../../tourism/hotelAndRestaurant/containers/HotelAndRestaurantOptionListContainer'
+import HotelAndRestaurant from './../../tourism/hotelAndRestaurant/containers/HotelAndRestaurantOptionListContainer';
+import HotelAndRestaurantDetail from './../../tourism/hotelAndRestaurant/containers/hotelAndResturantDetailContainer';
 import SmallBusiness from './../../tourism/smallBusiness/containers/smallBusinessOptionListContainer';
 import TuristicCentres from './../../tourism/touristicCentres/containers/touristicCentresOptionListContainer';
 
@@ -26,6 +27,20 @@ const StackNavigatorTourism = createStackNavigator({
     screen: HotelAndRestaurant,
     navigationOptions: {
       title: 'Hoteles y Restaurante',
+      headerStyle: {
+        backgroundColor: '#193555',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  },
+
+  HotelAndRestaurantDetail: {
+    screen: HotelAndRestaurantDetail,
+    navigationOptions: {
+      title: 'Detalle de Hotel',
       headerStyle: {
         backgroundColor: '#193555',
       },

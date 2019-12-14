@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         marginHorizontal: 5,
         borderRadius: 8,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
 
     containerDireccion: {
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
         color: 'blue',
         padding: 5,
         justifyContent: 'space-between',
-        width: '90%'
+        width: '90%',
     },
 
     key:{
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     address:{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '95%'
+        width: '95%',
     },
 
     title:{

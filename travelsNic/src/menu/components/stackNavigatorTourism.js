@@ -6,6 +6,7 @@ import Tourism from './../../tourism/menuTourism/containers/tourismMenuContainer
 import HotelAndRestaurant from './../../tourism/hotelAndRestaurant/containers/HotelAndRestaurantOptionListContainer';
 import HotelAndRestaurantDetail from './../../tourism/hotelAndRestaurant/containers/hotelAndResturantDetailContainer';
 import SmallBusiness from './../../tourism/smallBusiness/containers/smallBusinessOptionListContainer';
+import SmallBusinessDetail from './../../tourism/smallBusiness/containers/smallBusinessDetailContainer';
 import TuristicCentres from './../../tourism/touristicCentres/containers/touristicCentresOptionListContainer';
 import TuristicCentresDetail from './../../tourism/touristicCentres/containers/TouristicCentresDetailContainer';
 
@@ -66,6 +67,20 @@ const StackNavigatorTourism = createStackNavigator({
     },
   },
 
+  SmallBusinessDetail: {
+    screen: SmallBusinessDetail,
+    navigationOptions: {
+      title: 'Pequeños Negocios',
+      headerStyle: {
+        backgroundColor: '#193555',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  },
+
   TuristicCentres: {
     screen: TuristicCentres,
     navigationOptions: {
@@ -83,7 +98,7 @@ const StackNavigatorTourism = createStackNavigator({
   TuristicCentresDetail: {
     screen: TuristicCentresDetail,
     navigationOptions: {
-      title: 'Detalle de Centro Turistico',
+      title: 'Centro Turistico',
       headerStyle: {
         backgroundColor: '#193555',
       },

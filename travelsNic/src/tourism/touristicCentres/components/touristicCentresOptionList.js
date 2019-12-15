@@ -12,11 +12,10 @@ import {
     RefreshControl,
 } from 'react-native';
 
-
 import SeparatorList from './../utilities/separatorList';
 import SearchForContainer from './../containers/searchForContainer';
 
-const HotelAndRestaurantOptionList = (props) => {
+const TouristicCentresOptionList = (props) => {
     const {
         data,
         refreshing,
@@ -234,4 +233,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default HotelAndRestaurantOptionList;
+export default TouristicCentresOptionList;

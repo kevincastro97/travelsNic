@@ -21,13 +21,13 @@ const HotelAndRestaurantOptionList = (props) => {
         data,
         refreshing,
         onRefresh,
+        navigateToHotelAndRestaurantDetail,
         searchText,
         onSearch,
         originSearchText,
         onChangeOriginSearchText,
         departmentSearchText,
         onChangeDepartmentSearchText,
-        //navigateToHotelAndRestaurantDetail
     } = props;
 
     return(
@@ -54,15 +54,15 @@ const HotelAndRestaurantOptionList = (props) => {
                         onChangeOriginSearchText={onChangeOriginSearchText}
                         departmentSearchText={departmentSearchText}
                         onChangeDepartmentSearchText={onChangeDepartmentSearchText}
-                    />
+                    /> 
                 }
 
                 data = { data }
                 ListEmptyComponent = {() => <Text>Cargando información</Text>}
                 renderItem = {
-                    ({item}) => <Element item = {item}/>
+                    ({item}) => <Element item = {item} onPress = {() => { navigateToHotelAndRestaurantDetail(item); }} />
                 }
-                ItemSeparatorComponent = {() => <SeparatorList/>}
+                ItemSeparatorComponent = {() => <SeparatorList />}
             />
 
             </View>
@@ -80,7 +80,7 @@ const Element =(props) => {
     return(
 
         <TouchableOpacity
-      //onPress = {onPress}
+            onPress = {onPress}
         >
         
             <View style = {styles.container}>
@@ -126,7 +126,7 @@ const Element =(props) => {
                     <View style = {styles.address}>
 
                         <Text style = {styles.textDescription}>
-                            1 noche desde: 
+                            Desde:
                         </Text>
 
                         <View style = {styles.fundPrice}>

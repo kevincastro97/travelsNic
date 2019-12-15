@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import {
-    getHotelAndRestaurant
+    getHotelAndRestaurant,
 } from './../../../../lib/data/hotelAndRestaurant-data'; 
 
 import HotelAndRestaurantOptionList from './../components/hotelAndRestaurantOptionList';

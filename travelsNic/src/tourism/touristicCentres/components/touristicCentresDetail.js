@@ -9,10 +9,10 @@ import {
     ScrollView
 } from 'react-native';
 
-import TransparentEffect from './../utilities/transparentEffect';
-import SeparatorHorizontal from './../utilities/separatorHorizontal';
+import TransparentEffect from '../utilities/transparentEffect';
+import SeparatorHorizontal from '../utilities/separatorHorizontal';
 
-const HotelAndRestaurantDetail = (props) =>{
+const TouristicCentresDetail = (props) =>{
 
     const { data } = props;
 
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
 
     textContainer:{
         flexDirection: 'row',
-        marginTop: -30,
+        marginTop: -32,
         height: 25,
         justifyContent: 'space-between',
         alignItems: 'center'
@@ -210,4 +210,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default HotelAndRestaurantDetail;
+export default TouristicCentresDetail;

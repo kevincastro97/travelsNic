@@ -90,7 +90,8 @@ const styles = StyleSheet.create({
     container:{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        backgroundColor: '#ebe9e4'
     },
 
     fondColor: {
@@ -157,8 +158,8 @@ const styles = StyleSheet.create({
     },
 
     iconButton:{
-        width: 15,
-        height: 15,
+        width: 20,
+        height: 20,
     },
 
     textImput:{

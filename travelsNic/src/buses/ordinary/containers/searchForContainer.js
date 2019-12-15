@@ -25,6 +25,7 @@ class SearchForContainer extends Component {
     onChangeOpen = () =>{
       this.setModalVisible(true);
   }
+
   render(){
 
     const { modalVisible } = this.state;
@@ -37,7 +38,6 @@ class SearchForContainer extends Component {
       departmentSearchText,
       onChangeDepartmentSearchText,
     } = this.props;
-
 
     return(
       

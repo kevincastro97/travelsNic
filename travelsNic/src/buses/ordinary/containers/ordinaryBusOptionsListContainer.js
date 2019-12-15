@@ -136,7 +136,7 @@ class OrdinaryBusOptionsListContainer extends Component {
         }
 
         return arrayFilter;
-        
+         
     };
 
 }

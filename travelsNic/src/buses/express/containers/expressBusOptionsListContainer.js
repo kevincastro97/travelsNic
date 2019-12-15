@@ -6,7 +6,7 @@ import {
 
 import ExpressBusOptionsList from '../components/expressBusOptionsList'
 
-class ExpressBusOptionsListContainer extends Component {
+class ExpressBusOptionsListContainer extends Component { 
 
     constructor(props){
         super(props);
@@ -137,7 +137,7 @@ class ExpressBusOptionsListContainer extends Component {
         }
 
         return arrayFilter;
-        
+         
     };
 }
 

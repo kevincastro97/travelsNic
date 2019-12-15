@@ -13,7 +13,7 @@ import {
 
 import Separator from './../utilities/components/textDivider'
 
-export  const SearchFor = (props) => {
+const SearchFor = (props) => {
 
     const {
         modalVisible,
@@ -40,7 +40,7 @@ export  const SearchFor = (props) => {
 
                     <View style={styles.center}>
                         <Text style = {styles.textDescriptiontitle}>
-                            Filtro de Autobuses Ordinarios
+                            Filtro de Autobuses Expresos
                         </Text>
                     </View>
 
@@ -91,7 +91,7 @@ export  const SearchFor = (props) => {
                                 Aceptar
                             </Text>
                         </TouchableOpacity>
-
+                        
                     <Separator/>
 
                     </View>
@@ -202,13 +202,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between'
     },
-    
-    containerRow: {
-        flexDirection: 'row',
-        resizeMode: 'cover',
-        justifyContent: 'space-between',
-        width: '100%',
-    },
 
     button: {
         backgroundColor: '#1878ff',
@@ -256,6 +249,5 @@ const styles = StyleSheet.create({
     },
 
 }); 
-
 
 export default SearchFor

@@ -34,7 +34,7 @@ const Login = (props) =>{
                 <View style = {styles.header}>
 
                     <Image
-                        source={require('../../assets/login/icon.png')}
+                        source={require('../../assets/login/travelsNic.png')}
                         style = {styles.image}
                     />
 
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
         height: 120,
         borderRadius: 135,
         resizeMode: 'cover',
-        borderWidth: 3,
+        borderWidth: 5,
         borderColor: '#fff',
         marginTop: 20
     },

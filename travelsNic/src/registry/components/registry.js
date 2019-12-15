@@ -27,10 +27,10 @@ const Registry = (props) =>{
 
                 <View style = {styles.header}>
 
-                    <View>
+                    <View style = {styles.alimg}>
 
                         <Image
-                            source={require('../../assets/login/icon.png')}
+                            source={require('../../assets/login/travelsNic.png')}
                             style = {styles.image}
                         />
 
@@ -188,6 +188,10 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 
+    alimg:{
+        alignItems: 'center'
+    },
+
     header:{
         resizeMode: 'cover',
         justifyContent: 'space-between',
@@ -197,11 +201,11 @@ const styles = StyleSheet.create({
     },
 
     image:{
-        width: 110,
-        height: 110,
+        width: 100,
+        height: 100,
         borderRadius: 135,
         resizeMode: 'cover',
-        borderWidth: 3,
+        borderWidth: 4,
         borderColor: '#fff',
         marginTop: 10
     },

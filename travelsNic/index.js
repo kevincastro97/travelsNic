@@ -10,8 +10,6 @@ import ModalTester from './src/menu/components/navigationTabs'
 
 import Prueba from './src/tourism/hotelAndRestaurant/containers/HotelAndRestaurantOptionListContainer';
 
-import App from './src/slider'
-
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => ModalTester);

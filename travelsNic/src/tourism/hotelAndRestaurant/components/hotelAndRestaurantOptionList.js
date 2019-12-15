@@ -12,7 +12,6 @@ import {
     RefreshControl,
 } from 'react-native';
 
-
 import SeparatorList from './../utilities/separatorList';
 import SearchForContainer from './../containers/searchForContainer';
 

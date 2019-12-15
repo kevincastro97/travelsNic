@@ -10,8 +10,6 @@ import {
     FlatList
 } from 'react-native'
 
-import { withNavigation } from 'react-navigation'
-
 import SeparatorList from './../utilities/components/separatorList';
 import DetailList from './../components/DetailList';
 import Season from './../utilities/components/seasons';
@@ -159,4 +157,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default withNavigation(OrdinaryBusOptionsList);
+export default OrdinaryBusOptionsList;

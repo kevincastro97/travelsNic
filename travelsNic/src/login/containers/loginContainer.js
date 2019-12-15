@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import firebase from 'react-native-firebase';
 
-import { withNavigation } from 'react-navigation';
-
 import Login from '../components/login';
 
 import {
@@ -101,4 +99,4 @@ class LoginContainer extends Component {
     }    
 }
 
-export default withNavigation(LoginContainer);
+export default LoginContainer;

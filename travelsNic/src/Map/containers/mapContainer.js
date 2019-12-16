@@ -1,4 +1,4 @@
-/*import React, {Component} from 'react';
+import React, {Component} from 'react';
 
 import Map from './../components/map';
 
@@ -13,8 +13,8 @@ class MapContainer extends Component{
     }
 }
 
-export default MapContainer;*/
-
+export default MapContainer;
+/*
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
@@ -81,7 +81,7 @@ const mapStateToProps = (newState, props) => {
             latitude,
             longitude,
         };
-    }
+    } 
 
     return {
         state: state ? state : 1,
@@ -96,4 +96,4 @@ const mapDispatchToProps = (dispatch) => ({
     error: () => dispatch(error()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)( NearByStopsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)( NearByStopsContainer);*/

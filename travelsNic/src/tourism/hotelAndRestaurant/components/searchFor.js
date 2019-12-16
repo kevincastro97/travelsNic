@@ -121,7 +121,6 @@ export  const SearchFor = (props) => {
             </TouchableOpacity>
 
         </View>
-        
     );
 
 };

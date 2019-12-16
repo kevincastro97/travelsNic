@@ -12,4 +12,4 @@ import Prueba from './src/tourism/hotelAndRestaurant/containers/HotelAndRestaura
 
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => ModalTester);
+AppRegistry.registerComponent(appName, () => ProviderLit);

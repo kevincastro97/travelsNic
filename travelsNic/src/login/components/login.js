@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
         height: 120,
         borderRadius: 135,
         resizeMode: 'cover',
-        borderWidth: 5,
+        borderWidth: 3,
         borderColor: '#fff',
         marginTop: 20
     },

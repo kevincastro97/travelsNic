@@ -3,7 +3,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 
-import Map from './../../Map/containers/mapContainer';
+import Map from './../../Map/components/near-by-stops';
 import Setting from './../../settings/containers/settingContainer';
 
 const StackNavigatorMap = createStackNavigator({

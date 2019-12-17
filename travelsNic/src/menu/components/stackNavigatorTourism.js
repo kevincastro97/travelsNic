@@ -42,7 +42,7 @@ const StackNavigatorTourism = createStackNavigator({
   HotelAndRestaurantDetail: {
     screen: HotelAndRestaurantDetail,
     navigationOptions: {
-      title: 'Detalle de Hotel',
+      title: 'Detalle',
       headerStyle: {
         backgroundColor: '#193555',
       },

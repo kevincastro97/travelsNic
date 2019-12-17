@@ -32,14 +32,14 @@ const Header = (props)=> {
 
                             <View style = {styles.fondImage}>
                                 <Image
-                                    source={require('./../../../assets/login/icon.png')}
+                                    source={require('./../../../assets/login/travelsNic.png')}
                                     style = {styles.image}
                                 />
 
                             </View>
 
                             <Text style = {styles.name}>
-                                Kevin Castro
+                                TravelsNic
                             </Text>
 
                             </View>

@@ -8,13 +8,24 @@ import {
     Image,
     TouchableOpacity,
     TextInput,
-    SafeAreaView,
-    ScrollView
+
 } from 'react-native';
 
 import SeparatorText from './../utilities/components/separatorText'
 
 const Registry = (props) =>{
+
+    const {
+        userName,
+        myUserEvent,
+        email,
+        myEmailEvent,
+        password,
+        myPasswordEvent,
+        myEventPressSave,
+        beenInSaving,
+        navigateToLogin
+    } = props;
 
     return(
 
@@ -60,6 +71,9 @@ const Registry = (props) =>{
                             <TextInput
                                 style = {styles.letterImput}
                                 placeholder = 'Nombre de Usuario'
+                                value = {userName}
+                                onChangeText = {myUserEvent}
+                                editable = {beenInSaving === 'cargando' ? false : true }
                             />
 
                             <View style = {styles.centerIcon}>
@@ -86,6 +100,9 @@ const Registry = (props) =>{
                             <TextInput
                                 style = {styles.letterImput}
                                 placeholder = 'Correo electronico'
+                                value = {email}
+                                onChangeText = {myEmailEvent}
+                                editable = {beenInSaving === 'cargando' ? false : true }
                             />
 
                             <View style = {styles.centerIcon}>
@@ -112,6 +129,9 @@ const Registry = (props) =>{
                             <TextInput
                                 style = {styles.letterImput}
                                 placeholder = 'Contraseña'
+                                value = {password}
+                                onChangeText = {myPasswordEvent}
+                                editable = {beenInSaving === 'cargando' ? false : true }
                             />
 
                             <View style = {styles.centerIcon}>
@@ -134,7 +154,7 @@ const Registry = (props) =>{
                         <View style = {styles.containerRow}>
 
                             <TouchableOpacity 
-                                onPress={() => props.navigation.navigate('Login')}
+                                onPress={navigateToLogin}
                                 style = {styles.button}
                             >
                                 <Text style = {styles.textButton}>
@@ -145,6 +165,8 @@ const Registry = (props) =>{
                             <View style = {styles.divButton}/>
 
                             <TouchableOpacity 
+                                onPress = {myEventPressSave}
+                                editable = {beenInSaving === 'cargando' ? false : true }
                                 style = {styles.button}
                             >
                                 <Text style = {styles.textButton}>
@@ -305,7 +327,7 @@ const styles = StyleSheet.create({
     },
 
     textButton: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: 'bold',
         color: 'white',
     },

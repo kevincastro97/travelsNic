@@ -3,7 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
 
 import Login from './../../login/containers/loginContainer';
-import Registry from './../../registry/components/registry';
+import Registry from './../../registry/containers/registryContainer';
 import MenuTabs from './../../menu/components/navigationTabs';
 
 const LoginNavigator = createStackNavigator({

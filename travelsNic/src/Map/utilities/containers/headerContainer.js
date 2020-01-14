@@ -17,6 +17,7 @@ class ButtonMapContainer extends Component {
     };
    
     hideMenu = () => {
+      this.props.navigation.goBack()
       this._menu.hide();
     };
    

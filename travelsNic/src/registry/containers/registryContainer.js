@@ -10,10 +10,13 @@ import {
     Alert,
 } from 'react-native';
 
+import ImagePicker from 'react-native-image-picker';
+
 class RegistryContainer extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             beenInSaving: 'comienzo',
             user: null,
@@ -23,9 +26,45 @@ class RegistryContainer extends Component {
                 email: '',
                 password: '',
                 userName: '',
-            }
+            },
+
+            avatarSource: require('./../../assets/bus.png'),
         };
+
+        this.selectPhotoTapped = this.selectPhotoTapped.bind(this);
     }
+
+    selectPhotoTapped() {
+        const options = {
+          title: 'Seleccionar foto',
+          takePhotoButtonTitle: 'Tomar foto',
+          chooseFromLibraryButtonTitle: 'Galeria',
+          quality: 1.0,
+          maxWidth: 500,
+          maxHeight: 500,
+          storageOptions: {
+            skipBackup: true,
+          },
+        };
+    
+        ImagePicker.showImagePicker(options, response => {
+          console.log('Response = ', response);
+    
+          if (response.didCancel) {
+            console.log('User cancelled photo picker');
+          } else if (response.error) {
+            console.log('ImagePicker Error: ', response.error);
+          } else if (response.customButton) {
+            console.log('User tapped custom button: ', response.customButton);
+          } else {
+            let source = {uri: response.uri};
+  
+            this.setState({
+              avatarSource: source,
+            });
+          }
+        });
+      }
 
     myUserEvent = (userName) => {
         
@@ -129,7 +168,7 @@ class RegistryContainer extends Component {
                     }
                 }
             }
-        }
+        } 
     }
 
     navigateToLogin = () =>{
@@ -143,6 +182,7 @@ class RegistryContainer extends Component {
             email,
             password,
             beenInSaving,
+            avatarSource
         } = this.state
 
         return(
@@ -156,6 +196,8 @@ class RegistryContainer extends Component {
                 myEventPressSave = {this.myEventPressSave}
                 beenInSaving = {beenInSaving}
                 navigateToLogin = {this.navigateToLogin}
+                selectPhotoTapped = {this.selectPhotoTapped.bind(this)}
+                avatarSource = {avatarSource}
             />
         )
 

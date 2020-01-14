@@ -8,7 +8,7 @@ import {
     Image,
     TouchableOpacity,
     TextInput,
-
+    PixelRatio,
 } from 'react-native';
 
 import SeparatorText from './../utilities/components/separatorText'
@@ -24,7 +24,9 @@ const Registry = (props) =>{
         myPasswordEvent,
         myEventPressSave,
         beenInSaving,
-        navigateToLogin
+        navigateToLogin,
+        selectPhotoTapped,
+        avatarSource
     } = props;
 
     return(
@@ -40,10 +42,28 @@ const Registry = (props) =>{
 
                     <View style = {styles.alimg}>
 
-                        <Image
-                            source={require('../../assets/login/travelsNic.png')}
-                            style = {styles.image}
-                        />
+                        
+                    <TouchableOpacity 
+                onPress={selectPhotoTapped}
+            >
+                <View
+                    style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
+                >
+                    <Image 
+                            style={styles.avatar}
+                            source={avatarSource}    
+                    />
+                </View>
+
+                <View
+                    style={styles.contianerOption}
+                >
+                    <Image 
+                            style={styles.option}
+                            source={require('./../../assets/settings/notification.png')}    
+                    />
+                </View>
+            </TouchableOpacity>
 
                         <Text style = {styles.nameAplicacion}>
                             TravelsNic
@@ -195,6 +215,32 @@ const Registry = (props) =>{
 
 const styles = StyleSheet.create({
 
+    avatarContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 100,
+        height: 100,
+        marginTop: 10
+    },
+
+    avatar: {
+        width: 100,
+        height: 100,
+        borderRadius: 135,
+        borderColor: '#FFFFFF',
+        borderWidth: 2
+    },
+
+    contianerOption:{
+        marginTop: -45,
+        marginLeft: 70
+    },
+
+    option:{
+        width: 30,
+        height: 30
+    },  
+
     containerImage:{
         flex: 1,
         flexDirection: 'row',
@@ -222,20 +268,11 @@ const styles = StyleSheet.create({
         height: '35%',
     },
 
-    image:{
-        width: 100,
-        height: 100,
-        borderRadius: 135,
-        resizeMode: 'cover',
-        borderWidth: 4,
-        borderColor: '#fff',
-        marginTop: 10
-    },
-
     nameAplicacion:{
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        marginTop: 20
     },
 
     nameRegistry: {

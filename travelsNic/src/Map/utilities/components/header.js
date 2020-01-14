@@ -10,11 +10,19 @@ import {
     TextInput
 } from 'react-native';
 
-import { Mapa } from './../containers/buttonMapContainer';
+import Menu, { 
+    MenuItem, 
+    MenuDivider 
+} from 'react-native-material-menu';
 
 const Header = (props)=> {
 
-    const { navigateToSettings } = props;
+    const { 
+        hideMenu,
+        showMenu,
+        setMenuRef,
+        navigateToSettings
+    } = props;
 
     return(
 
@@ -45,14 +53,29 @@ const Header = (props)=> {
                             </View>
 
                             <View>
-                                <TouchableOpacity
-                                    onPress = {navigateToSettings}
+                                <Menu
+                                    ref = {setMenuRef}
+                                    button = {
+                                        <TouchableOpacity
+                                            onPress = {
+                                                showMenu
+                                            }
+                                        >
+                                            <Image
+                                                source = {require('./../../../assets/menu/Options.png')}
+                                                style = {styles.iconButton}
+                                            />
+                                        </TouchableOpacity>
+                                    }
+
+                                    style = {styles.menu}
                                 >
-                                    <Image
-                                        source = {require('./../../../assets/menu/Options.png')}
-                                        style = {styles.iconButton}
-                                    />
-                                </TouchableOpacity>
+                                    <MenuItem onPress={hideMenu}>Perfil</MenuItem>
+                                    <MenuItem onPress={navigateToSettings}>Alarma</MenuItem>
+                                    <MenuDivider />
+                                    <MenuItem onPress={hideMenu}>Salir</MenuItem>
+
+                                </Menu>
                             </View>
 
                         </View>
@@ -158,8 +181,8 @@ const styles = StyleSheet.create({
     },
 
     iconButton:{
-        width: 20,
-        height: 20,
+        width: 30,
+        height: 30,
     },
 
     textImput:{
@@ -192,6 +215,13 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         resizeMode: 'cover',
         marginHorizontal: 5
+    },
+
+    menu:{
+        height: 150,
+        width: 150,
+        marginTop: -20,
+        marginLeft: 15
     }
 })
 

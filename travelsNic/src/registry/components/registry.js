@@ -304,6 +304,7 @@ const styles = StyleSheet.create({
         width: '90%',
         alignItems: 'center',
         justifyContent: 'flex-end',
+        marginTop: -20
     },
     
     containerRow: {
@@ -314,7 +315,7 @@ const styles = StyleSheet.create({
     },
 
     divButton:{
-        width: 15
+        width: 10
     },
 
     button: {

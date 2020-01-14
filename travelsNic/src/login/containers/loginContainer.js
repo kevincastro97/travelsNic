@@ -38,27 +38,41 @@ class LoginContainer extends Component {
 
         const { userEmail, userPassword, } = this.state;
 
-        this.setState({
-            loadingState: 'cargando',
-        });
-        
-        firebase
-        .auth()
-        .signInWithEmailAndPassword (userEmail, userPassword)
-        .then (res => {
-            this.setState({
-                user: res.user,
-                loadingState: 'cargado',
-            });
-            this.props.navigation.navigate('MenuTabs');
-        })
-        .catch((error) => {
-            this.setState({
-                loadingState: 'error',
-                error: error,
-            });
-            Alert.alert("Error ", userEmail + " " + userPassword + ". " + error.message);
-        });
+        if(userEmail === ''){
+            Alert.alert("Ingrese un usuario");
+        } else {
+            if(userPassword === ''){
+                Alert.alert("Ingrese una contraseña");
+            } else {
+                if(userEmail === '' && userPassword === ''){
+                    Alert.alert("ingrese usuario y contraseña");
+                } else{
+                    this.setState({
+                        loadingState: 'cargando',
+                    });
+                    
+                    firebase
+                    .auth()
+                    .signInWithEmailAndPassword (userEmail, userPassword)
+                    .then (res => {
+                        this.setState({
+                            user: res.user,
+                            loadingState: 'cargado',
+                        });
+                        this.props.navigation.navigate('MenuTabs');
+                    })
+                    .catch((error) => {
+                        this.setState({
+                            loadingState: 'error',
+                            error: error,
+                            userEmail: '',
+                            userPassword: ''
+                        });
+                        Alert.alert("Usuario o contaseña incorrecto");
+                    });
+                }
+            }
+        }
 
     }
 

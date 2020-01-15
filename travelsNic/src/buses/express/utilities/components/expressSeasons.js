@@ -10,7 +10,7 @@ const ExpressSeason = () => {
     return(
         <View style = {styles.container}>
             <Text style = {styles.season}>
-                Estaciones del Autobus
+                Caracteristicas
             </Text>
         </View>
     );

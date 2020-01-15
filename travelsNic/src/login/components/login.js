@@ -191,10 +191,7 @@ const styles = StyleSheet.create({
     image:{
         width: 120,
         height: 120,
-        borderRadius: 135,
         resizeMode: 'cover',
-        borderWidth: 3,
-        borderColor: '#fff',
         marginTop: 20
     },
 

@@ -5,7 +5,6 @@ import {
     Image,
     Text,
     StyleSheet,
-    ScrollView,
     SafeAreaView,
     FlatList
 } from 'react-native'
@@ -23,31 +22,27 @@ const OrdinaryBusOptionsList = (props) => {
 
             <View >
 
-                <ScrollView>
-
-                    <FlatList
-                    
-                        ListHeaderComponent = {
-                            <View>
-                                <DetailList
-                                    headers = {headers}
-                                />
-                                
-                                <Season/>
-                                
-                                <SeparatorList/>
-                            </View>
+                <FlatList
+                
+                    ListHeaderComponent = {
+                        <View>
+                            <DetailList
+                                headers = {headers}
+                            />
                             
-                        }
-                        data = {data}
-                        ListEmptyComponent = {() => <Text>Componente de texto</Text>}
-                        renderItem = {
-                            ({item}) => <Element item = {item}/>
-                        }
-                        ItemSeparatorComponent = {() => <SeparatorList/>}
-                    />
-
-                </ScrollView>
+                            <Season/>
+                            
+                            <SeparatorList/>
+                        </View>
+                        
+                    }
+                    data = {data}
+                    ListEmptyComponent = {() => <Text>Componente de texto</Text>}
+                    renderItem = {
+                        ({item}) => <Element item = {item}/>
+                    }
+                    ItemSeparatorComponent = {() => <SeparatorList/>}
+                />
 
             </View>
 
@@ -59,7 +54,7 @@ const OrdinaryBusOptionsList = (props) => {
 
 const Element =(props) => {
 
-    const { item, onPress, } = props;
+    const { item, } = props;
     
     return(
         

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import { View } from 'react-native'
-
 import ExpressBusDetailList from '../components/expressBusDetailList';
 
 class ExpressBusDetailListContainer extends Component {
@@ -33,13 +31,10 @@ class ExpressBusDetailListContainer extends Component {
         const {expressLines, expressListHeader} = this.state
 
         return(
-            <View>
-                <ExpressBusDetailList
-                    data = {expressLines}
-                    headers = {expressListHeader}
-                />
-            </View>
-            
+            <ExpressBusDetailList
+                data = {expressLines}
+                headers = {expressListHeader}
+            />
         );
 
     }

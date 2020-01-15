@@ -8,7 +8,6 @@ import {
     StyleSheet,
     SafeAreaView,
     Image,
-    ScrollView,
     RefreshControl,
 } from 'react-native';
 

@@ -15,18 +15,27 @@ const GaleriaImage = (props) => {
 
     return(
         <View style={styles.container}>
-            <TouchableOpacity 
-                onPress={selectPhotoTapped}
+
+            <View
+                style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
             >
-                <View
-                    style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
-                >
-                    <Image 
-                            style={styles.avatar}
-                            source={avatarSource}    
-                    />
-                </View>
-            </TouchableOpacity>
+                <Image 
+                        style={styles.avatar}
+                        source={avatarSource}    
+                />
+            </View>
+
+            <View style = {styles.iconContainer}>
+              <TouchableOpacity 
+                  onPress={selectPhotoTapped}
+              >
+                <Image 
+                  style={styles.icon}
+                  source={require('./../../assets/registry/optionCamera.png')}    
+                />
+              </TouchableOpacity>
+            </View>
+            
         </View>
     );
 }
@@ -51,8 +60,12 @@ const styles = StyleSheet.create({
       height: 150,
     },
     icon:{
-        height: 30,
-        width: 30
+        height: 40,
+        width: 40
+    },
+    iconContainer:{
+      marginTop: -60,
+      marginLeft: 90
     }
   });
 

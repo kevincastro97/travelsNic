@@ -8,7 +8,6 @@ import {
     StyleSheet,
     SafeAreaView,
     Image,
-    ScrollView,
     RefreshControl,
 } from 'react-native';
 
@@ -38,38 +37,34 @@ const ExpressBusOptionsList = (props) => {
 
             <View style={styles.list}>
 
-                <ScrollView>
-
-                    <FlatList 
+                <FlatList 
                     style={styles.list}
 
-                        refreshControl={
-                            <RefreshControl
-                                refreshing={refreshing}
-                                onRefresh={onRefresh}
-                            />
-                        }
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={refreshing}
+                            onRefresh={onRefresh}
+                        />
+                    }
 
-                        ListHeaderComponent={
-                            <ExpressSearchForContainer
-                                searchText={searchText}
-                                onSearch={onSearch}
-                                originSearchText={originSearchText}
-                                onChangeOriginSearchText={onChangeOriginSearchText}
-                                departmentSearchText={departmentSearchText}
-                                onChangeDepartmentSearchText={onChangeDepartmentSearchText}
-                            />
-                        }
-                        
-                        data = { data }
-                        ListEmptyComponent = {() => <Text>Cargando información</Text>}
-                        renderItem = {
-                            ({item}) => <Element item = {item}  onPress = {() => { navigateToExpressDetail(item); }}/>
-                        }
-                        ItemSeparatorComponent = {() => <ExpressSeparatorList/>}
-                    />
-
-                </ScrollView>
+                    ListHeaderComponent={
+                        <ExpressSearchForContainer
+                            searchText={searchText}
+                            onSearch={onSearch}
+                            originSearchText={originSearchText}
+                            onChangeOriginSearchText={onChangeOriginSearchText}
+                            departmentSearchText={departmentSearchText}
+                            onChangeDepartmentSearchText={onChangeDepartmentSearchText}
+                        />
+                    }
+                    
+                    data = { data }
+                    ListEmptyComponent = {() => <Text>Cargando información</Text>}
+                    renderItem = {
+                        ({item}) => <Element item = {item}  onPress = {() => { navigateToExpressDetail(item); }}/>
+                    }
+                    ItemSeparatorComponent = {() => <ExpressSeparatorList/>}
+                />
 
             </View>
 

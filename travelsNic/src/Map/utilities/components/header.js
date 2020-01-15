@@ -71,7 +71,7 @@ const Header = (props)=> {
                                     style = {styles.menu}
                                 >
                                     <MenuItem onPress={hideMenu}>Perfil</MenuItem>
-                                    <MenuItem onPress={navigateToSettings}>Alarma</MenuItem>
+                                    <MenuItem onPress={navigateToSettings}>Acerca de nosotros</MenuItem>
                                     <MenuDivider />
                                     <MenuItem onPress={hideMenu}>Salir</MenuItem>
 

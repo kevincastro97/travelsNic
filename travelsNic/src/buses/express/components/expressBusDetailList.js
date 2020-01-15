@@ -2,12 +2,10 @@ import React from 'react'
 
 import {
     View,
-    Image,
     Text,
     StyleSheet,
-    ScrollView,
-    SafeAreaView,
-    FlatList
+    FlatList,
+    SafeAreaView
 } from 'react-native'
 
 import ExpressSeparatorList from '../utilities/components/expressSeparatorList';
@@ -19,39 +17,38 @@ const ExpressBusOptionsList = (props) => {
     const { data , headers} = props;
 
     return(
+        
         <SafeAreaView  style = {styles.fondo}>
 
             <View >
-
-                <ScrollView>
-
-                    <FlatList
-                    
-                        ListHeaderComponent = {
-                            <View>
-                                <ExpressDetailList
-                                    headers = {headers}
-                                />
-                                
-                                <ExpressSeasons/>
-                                
-                                <ExpressSeparatorList/>
-                            </View>
+                
+                <FlatList
+                
+                    ListHeaderComponent = {
+                        <View>
+                            <ExpressDetailList
+                                headers = {headers}
+                            />
                             
-                        }
-                        data = {data}
-                        ListEmptyComponent = {() => <Text>Componente de texto</Text>}
-                        renderItem = {
-                            ({item}) => <Element item = {item}/>
-                        }
-                        ItemSeparatorComponent = {() => <ExpressSeparatorList/>}
-                    />
-
-                </ScrollView>
+                            <ExpressSeasons/>
+                            
+                            <ExpressSeparatorList/>
+                        </View>
+                        
+                    }
+                    data = {data}
+                    ListEmptyComponent = {() => <Text>Componente de texto</Text>}
+                    renderItem = {
+                        ({item}) => <Element item = {item}/>
+                    }
+                    ItemSeparatorComponent = {() => <ExpressSeparatorList/>}
+                />
+               
 
             </View>
 
         </SafeAreaView>
+
     );
 
 }
@@ -76,22 +73,6 @@ const Element =(props) => {
                     {item.title}
                 </Text>
 
-                <View style = {styles.address}>
-
-                    <Text style = {styles.subTitle}> 
-                        Distancia: {item.distance}
-                    </Text>
-                    
-                    <Text style = {styles.subTitle}> 
-                        Tarifa: {item.rate}
-                    </Text>
-
-                </View>
-
-                <Text style = {styles.subTitle}>
-                    Tiempo aproximado: {item.approximateTime}
-                </Text>
-
             </View>
 
         </View>
@@ -110,7 +91,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         marginHorizontal: 5,
         borderRadius: 8,
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        height: 40
     },
 
     containerDireccion: {
@@ -124,8 +106,8 @@ const styles = StyleSheet.create({
     key:{
         backgroundColor: '#069dab',
         borderRadius: 250,
-        width: 35,
-        height: 35,
+        width: 25,
+        height: 25,
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft:  5,
@@ -145,7 +127,7 @@ const styles = StyleSheet.create({
 
     title:{
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: 'normal',
         color: 'black',
     },
 

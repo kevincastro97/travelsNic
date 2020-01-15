@@ -42,29 +42,30 @@ const Registry = (props) =>{
 
                     <View style = {styles.alimg}>
 
+                        <View>
+
+                            <View
+                                style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
+                            >
+                                <Image 
+                                        style={styles.avatar}
+                                        source={avatarSource}    
+                                />
+                            </View>
+
+                            <View style = {styles.iconContainer}>
+                                <TouchableOpacity 
+                                    onPress={selectPhotoTapped}
+                                >
+                                    <Image 
+                                        style={styles.iconOption}
+                                        source={require('./../../assets/registry/optionCamera.png')}    
+                                    />
+                                </TouchableOpacity>
+                            </View>
+
+                        </View>
                         
-                    <TouchableOpacity 
-                onPress={selectPhotoTapped}
-            >
-                <View
-                    style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
-                >
-                    <Image 
-                            style={styles.avatar}
-                            source={avatarSource}    
-                    />
-                </View>
-
-                <View
-                    style={styles.contianerOption}
-                >
-                    <Image 
-                            style={styles.option}
-                            source={require('./../../assets/settings/notification.png')}    
-                    />
-                </View>
-            </TouchableOpacity>
-
                         <Text style = {styles.nameAplicacion}>
                             TravelsNic
                         </Text>
@@ -231,15 +232,15 @@ const styles = StyleSheet.create({
         borderWidth: 2
     },
 
-    contianerOption:{
-        marginTop: -45,
-        marginLeft: 70
+    iconContainer:{
+        marginTop: -55,
+        marginLeft: 65
     },
 
-    option:{
-        width: 30,
-        height: 30
-    },  
+    iconOption:{
+        height: 35,
+        width: 35
+    },
 
     containerImage:{
         flex: 1,
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: '#FFFFFF',
-        marginTop: 20
+        marginTop: 5
     },
 
     nameRegistry: {

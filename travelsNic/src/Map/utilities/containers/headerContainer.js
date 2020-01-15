@@ -1,10 +1,10 @@
 import React, { Component} from 'react';
 
-import { withNavigation } from 'react-navigation'
+import { withNavigation} from 'react-navigation'
 
-import ButtonMap from './../components/header';
+import Header from './../components/header';
 
-class ButtonMapContainer extends Component {
+class HeaderContainer extends Component {
 
     constructor(props){
         super(props)
@@ -25,21 +25,27 @@ class ButtonMapContainer extends Component {
       this._menu.show();
     };
 
-    navigateToSettings = () =>{
-        this.props.navigation.navigate('Setting')
+    navigateToAboutUs = () =>{
+        this.props.navigation.navigate('AboutUs')
         this._menu.hide();
     }
 
+    navigateToProfile = () =>{
+      this.props.navigation.navigate('Profile')
+      this._menu.hide();
+  }
+
     render(){
         return(
-            <ButtonMap
+            <Header
                 showMenu = {this.showMenu}
                 hideMenu = {this.hideMenu}
                 setMenuRef = {this.setMenuRef}
-                navigateToSettings = {this.navigateToSettings}
+                navigateToAboutUs = {this.navigateToAboutUs}
+                navigateToProfile = {this.navigateToProfile}
             />
         );
     }
 }
 
-export default  withNavigation(ButtonMapContainer);
+export default withNavigation(HeaderContainer);

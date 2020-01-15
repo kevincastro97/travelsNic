@@ -87,6 +87,8 @@ const DetailList = (props) =>{
 
             </View>
 
+            <View style = {styles.and}/>
+
         </View>
 
     );
@@ -173,8 +175,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginHorizontal: 5,
         marginTop: 2
-    }
+    },
 
+    and:{
+        height: 10
+    }
 })
 
 export default DetailList;

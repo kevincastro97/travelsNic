@@ -21,7 +21,8 @@ const Header = (props)=> {
         hideMenu,
         showMenu,
         setMenuRef,
-        navigateToSettings
+        navigateToAboutUs,
+        navigateToProfile
     } = props;
 
     return(
@@ -70,8 +71,8 @@ const Header = (props)=> {
 
                                     style = {styles.menu}
                                 >
-                                    <MenuItem onPress={hideMenu}>Perfil</MenuItem>
-                                    <MenuItem onPress={navigateToSettings}>Acerca de nosotros</MenuItem>
+                                    <MenuItem onPress={navigateToProfile}>Perfil</MenuItem>
+                                    <MenuItem onPress={navigateToAboutUs}>Acerca de nosotros</MenuItem>
                                     <MenuDivider />
                                     <MenuItem onPress={hideMenu}>Salir</MenuItem>
 

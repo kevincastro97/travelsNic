@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     menu:{
         height: 150,
         width: 150,
-        marginTop: -20,
+        marginTop: -12,
         marginLeft: 15
     }
 })

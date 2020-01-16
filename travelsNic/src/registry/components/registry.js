@@ -94,6 +94,7 @@ const Registry = (props) =>{
                                 placeholder = 'Nombre de Usuario'
                                 value = {userName}
                                 onChangeText = {myUserEvent}
+                                maxLength = {15}
                                 editable = {beenInSaving === 'cargando' ? false : true }
                             />
 
@@ -152,6 +153,7 @@ const Registry = (props) =>{
                                 placeholder = 'Contraseña'
                                 value = {password}
                                 onChangeText = {myPasswordEvent}
+                                maxLength = {8}
                                 editable = {beenInSaving === 'cargando' ? false : true }
                             />
 

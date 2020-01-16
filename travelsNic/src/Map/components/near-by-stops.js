@@ -12,7 +12,7 @@ import Headerd from './../utilities/containers/headerContainer'
 const NearByStops = ({ state, location }) => {
     return (
         <View>
-
+ 
             <Headerd/>
 
             <MapView

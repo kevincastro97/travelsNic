@@ -1,43 +1,49 @@
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; 
 import React from 'react';
 import {
+    View,
     StyleSheet,
-    View
-} from 'react-native';
+} from "react-native";
+import MapView, { Marker } from 'react-native-maps';
 
 import Headerd from './../utilities/containers/headerContainer'
 
+const NearByStops = (props) => {
+
+    const { data } = props;
+
+    return (
+        <View>
+
+            <Headerd/>
+
+            <MapView
+                style={styles.mapContainer}
+                initialRegion={{
+                    latitude: 12.1062900,
+                    longitude: -85.3645200,
+                    latitudeDelta: 0.0055,
+                    longitudeDelta: 0.0055,
+                }}
+            >
+                <Marker
+                    coordinate={{ latitude: 12.091926, longitude: -85.360862, }}
+                    title={'Terminal Mayales'}
+                    image = {require('./../../assets/ba.png')}
+                />
+            </MapView>
+        </View>
+    ) 
+};
+
 const styles = StyleSheet.create({
-    container: {
-      ...StyleSheet.absoluteFillObject,
-      height: '100%',
-      width: '100%',
-      alignItems: 'center',
+    mapContainer: {
+        backgroundColor: '#FFF',
+        flex: 1,
+        minHeight: '100%',
+        minWidth: '100%',
     },
-    map: {
-      ...StyleSheet.absoluteFillObject,
-      marginTop: 110
-    },
-   });
 
-const Maps = () => (
-     
-    <View style={styles.container}>
+});
 
-      <Headerd/>
-    
-      <MapView
-        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        style={styles.map}
-        region={{
-            latitude: 12.105846,
-            longitude: -85.365298,
-            latitudeDelta: 0.0055,
-            longitudeDelta: 0.0055,
-        }}
-      >
-      </MapView>
-    </View>
- );
+export default NearByStops;
 
- export default Maps

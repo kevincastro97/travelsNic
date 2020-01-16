@@ -89,6 +89,7 @@ const Login = (props) =>{
                             secureTextEntry = {true} 
                             onChangeText={onChangePassword}
                             value={userPassword}
+                            maxLength = {8}
                             editable={loadingState === 'cargando' ? false : true }
                         />
 

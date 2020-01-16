@@ -15,6 +15,30 @@ class MapContainer extends Component{
         this.state = {
             loadingState: 'cargando',
             data:[],
+
+            datos: [
+                {
+                    lan: {
+                        key: 1,
+                        latitude: 12.091926, 
+                        longitude: -85.360862, 
+                    },
+
+                    title: 'klmlkmde',
+                    imagen: require('./../../assets/ba.png'),
+                },
+
+                {
+                    lan: {
+                        key: 1,
+                        latitude: 12.094056, 
+                        longitude: -85.361666, 
+                    },
+
+                    title: 'meee',
+                    imagen: require('./../../assets/ba.png'),
+                }
+            ]
         }
     }
 
@@ -24,7 +48,7 @@ class MapContainer extends Component{
 
         return(
             <Map
-                //data = {data}
+                data = {data}
             />
         );
 
@@ -41,13 +65,13 @@ class MapContainer extends Component{
         });
 
         getCoordinateMap()
-        .then((CoordinateMapArray) => {
+        .then((coordinateMapArreglo) => {
 
-            console.log(CoordinateMapArray);
+            console.log(coordinateMapArreglo);
             
             this.setState({
                 loadingState: 'cargado',
-                data: CoordinateMapArray,
+                data: coordinateMapArreglo,
             });
 
         })

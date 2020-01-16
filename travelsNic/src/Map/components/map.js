@@ -25,11 +25,15 @@ const NearByStops = (props) => {
                     longitudeDelta: 0.0055,
                 }}
             >
-                <Marker
-                    coordinate={{ latitude: 12.091926, longitude: -85.360862, }}
-                    title={'Terminal Mayales'}
-                    image = {require('./../../assets/ba.png')}
-                />
+
+                {data.map(marker => (
+                    <Marker
+                        coordinate={marker.coordinate}
+                        title={marker.title}
+                        image = {marker.icon} 
+                    />
+                ))}
+                
             </MapView>
         </View>
     ) 

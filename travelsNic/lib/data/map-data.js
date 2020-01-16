@@ -2,7 +2,7 @@ import firebase from 'react-native-firebase';
 
 const COORDINATE_MAP_COLLECTION = 'coordinateMap';
 
-export const expressLinesQuery = () => {
+export const coordinateMapQuery = () => {
     const db = firebase.firestore();
     return db.collection(COORDINATE_MAP_COLLECTION);
 };
@@ -20,7 +20,7 @@ export const getCoordinateMap = async() => {
     const snapshotsCoordinateMap = await coordinateMapQuery().get();
     snapshotsCoordinateMap.forEach((documento) => {
         coordinateMapArreglo.push({
-            id: documento.id,
+            id: documento.id, 
             ...documento.data(),
         });
     });

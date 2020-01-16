@@ -15,36 +15,12 @@ class MapContainer extends Component{
         this.state = {
             loadingState: 'cargando',
             data:[],
-
-            datos: [
-                {
-                    lan: {
-                        key: 1,
-                        latitude: 12.091926, 
-                        longitude: -85.360862, 
-                    },
-
-                    title: 'klmlkmde',
-                    imagen: require('./../../assets/ba.png'),
-                },
-
-                {
-                    lan: {
-                        key: 1,
-                        latitude: 12.094056, 
-                        longitude: -85.361666, 
-                    },
-
-                    title: 'meee',
-                    imagen: require('./../../assets/ba.png'),
-                }
-            ]
         }
     }
 
     render(){
 
-        const  {data} = this.state
+        const  { data } = this.state
 
         return(
             <Map

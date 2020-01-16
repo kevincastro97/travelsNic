@@ -20,7 +20,7 @@ export const getOrdinaryLines = async() => {
     const snapshotsOrdinaryLines = await ordinaryLinesQuery().get();
     snapshotsOrdinaryLines.forEach((documento) => {
         busesArreglo.push({
-            id: documento.id,
+            id: documento.id, 
             ...documento.data(),
         });
     });

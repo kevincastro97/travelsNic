@@ -7,7 +7,8 @@ import {
     ImageBackground,
     Image,
     TouchableOpacity,
-    TextInput
+    TextInput,
+    ScrollView
 } from 'react-native';
 
 import SeparatorText from './../utilities/components/separatorText'
@@ -28,141 +29,145 @@ const Login = (props) =>{
         <ImageBackground
             source = {require('./../../assets/login/lBackground.png')}
             style = {styles.imageContainer}
-        >
-            <View  style = {styles.container}>
+        > 
+            <ScrollView>
+                <View  style = {styles.container}>
 
-                <View style = {styles.header}>
+                
 
-                    <Image
-                        source={require('../../assets/login/travelsNic.png')}
-                        style = {styles.image}
-                    />
+                    <View style = {styles.header}>
 
-                    <Text style = {styles.nameAplicacion}>
-                        TravelsNic
-                    </Text>
-
-                </View>
-
-                <View style = {styles.loginContainer}>
-                    <Text style = {styles.textDescription}>
-                        Correo
-                    </Text>
-
-                    <View style = {styles.textImput}>
-
-                        <TextInput
-                            style = {styles.letterImput}
-                            placeholder = 'Correo electronico'
-                            autoCompleteType = 'email'
-                            onChangeText={onChangeEmail}
-                            value={userEmail}
-                            editable={loadingState === 'cargando' ? false : true }
+                        <Image
+                            source={require('../../assets/login/travelsNic.png')}
+                            style = {styles.image}
                         />
 
-                        <View style = {styles.centerIcon}>
-
-                        <TouchableOpacity>
-                            <Image
-                                source = {require('./../../assets/login/email.png')}
-                                style = {styles.icon}
-                            />
-                        </TouchableOpacity>
-                            
-                        </View>
+                        <Text style = {styles.nameAplicacion}>
+                            TravelsNic
+                        </Text>
 
                     </View>
 
-                    <SeparatorText/>
+                    <View style = {styles.loginContainer}>
+                        <Text style = {styles.textDescription}>
+                            Correo
+                        </Text>
 
-                    <View style = {styles.divText}/>
+                        <View style = {styles.textImput}>
 
-                    <Text style = {styles.textDescription}>
-                        Contraseña
-                    </Text>
+                            <TextInput
+                                style = {styles.letterImput}
+                                placeholder = 'Correo electronico'
+                                autoCompleteType = 'email'
+                                onChangeText={onChangeEmail}
+                                value={userEmail}
+                                editable={loadingState === 'cargando' ? false : true }
+                            />
 
-                    <View style = {styles.textImput}>
-
-                        <TextInput
-                            style = {styles.letterImput}
-                            placeholder = 'Contraseña'
-                            secureTextEntry = {true} 
-                            onChangeText={onChangePassword}
-                            value={userPassword}
-                            maxLength = {8}
-                            editable={loadingState === 'cargando' ? false : true }
-                        />
-
-                        <View style = {styles.centerIcon}>
+                            <View style = {styles.centerIcon}>
 
                             <TouchableOpacity>
                                 <Image
-                                    source = {require('./../../assets/login/eye.png')}
+                                    source = {require('./../../assets/login/email.png')}
                                     style = {styles.icon}
                                 />
                             </TouchableOpacity>
                                 
+                            </View>
+
                         </View>
-                        
-                    </View>
-
-                    <TouchableOpacity >
-                        <Text style = {styles.textRecover}>
-                            ¿Has olvidaste tu contraseña?
-                        </Text>
-                    </TouchableOpacity>
-
-                </View>
-
-                <View style = {styles.buttonContainer}>
-
-                    <View style = {styles.containerRow}>
-
-                        <TouchableOpacity 
-                            style = {styles.button}
-                            onPress={startButton}
-                            disabled={ loadingState=== 'cargando' ? true : false }
-                        >
-                            <Text style = {styles.textButton}>
-                                Iniciar sesión
-                            </Text>
-                        </TouchableOpacity>
 
                         <SeparatorText/>
 
-                        <TouchableOpacity 
-                            onPress = {registryButtonNavigation}
-                            style = {styles.button}
-                        >
-                            <Text style = {styles.textButton}>
-                                Registrarme
+                        <View style = {styles.divText}/>
+
+                        <Text style = {styles.textDescription}>
+                            Contraseña
+                        </Text>
+
+                        <View style = {styles.textImput}>
+
+                            <TextInput
+                                style = {styles.letterImput}
+                                placeholder = 'Contraseña'
+                                secureTextEntry = {true} 
+                                onChangeText={onChangePassword}
+                                value={userPassword}
+                                maxLength = {8}
+                                editable={loadingState === 'cargando' ? false : true }
+                            />
+
+                            <View style = {styles.centerIcon}>
+
+                                <TouchableOpacity>
+                                    <Image
+                                        source = {require('./../../assets/login/eye.png')}
+                                        style = {styles.icon}
+                                    />
+                                </TouchableOpacity>
+                                    
+                            </View>
+                            
+                        </View>
+
+                        <TouchableOpacity >
+                            <Text style = {styles.textRecover}>
+                                ¿Has olvidaste tu contraseña?
                             </Text>
                         </TouchableOpacity>
 
                     </View>
 
-                    <SeparatorText/>
+                    <View style = {styles.buttonContainer}>
 
-                    <View style = {styles.containerRegistry}>
-       
-                        <Text style = {styles.text}>
-                            no tienes cuenta? 
-                        </Text>
+                        <View style = {styles.containerRow}>
 
-                        <View style = {styles.divVertical}/>
-                        
-                        <Text style = {styles.Registry}>
-                            Regístrate
-                        </Text>
+                            <TouchableOpacity 
+                                style = {styles.button}
+                                onPress={startButton}
+                                disabled={ loadingState=== 'cargando' ? true : false }
+                            >
+                                <Text style = {styles.textButton}>
+                                    Iniciar sesión
+                                </Text>
+                            </TouchableOpacity>
+
+                            <SeparatorText/>
+
+                            <TouchableOpacity 
+                                onPress = {registryButtonNavigation}
+                                style = {styles.button}
+                            >
+                                <Text style = {styles.textButton}>
+                                    Registrarme
+                                </Text>
+                            </TouchableOpacity>
+
+                        </View>
+
+                        <SeparatorText/>
+
+                        <View style = {styles.containerRegistry}>
+        
+                            <Text style = {styles.text}>
+                                no tienes cuenta? 
+                            </Text>
+
+                            <View style = {styles.divVertical}/>
+                            
+                            <Text style = {styles.Registry}>
+                                Regístrate
+                            </Text>
+
+                        </View>
+
+                        <View style = {styles.end}/>
+                        <SeparatorText/>
 
                     </View>
 
-                    <View style = {styles.end}/>
-
-                </View>
-
-            </View>  
-
+                </View>  
+            </ScrollView>
         </ImageBackground>
     );
 }
@@ -171,14 +176,12 @@ const styles = StyleSheet.create({
     imageContainer:{
         flex: 1,
         flexDirection: 'row',
-        resizeMode: 'cover',
         justifyContent: 'space-between'
     },
 
     container: {
         flex: 1,
         flexDirection: 'column',
-        resizeMode: 'cover',
         justifyContent: 'space-between',
         alignItems: 'center'
     },
@@ -187,6 +190,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         resizeMode: 'cover',
         justifyContent: 'space-between',
+        marginTop: 20
     },
 
     image:{
@@ -209,7 +213,7 @@ const styles = StyleSheet.create({
         width: '90%',
         padding: 10,
         height: '40%',
-        marginTop: 20,
+        marginTop: 30,
         justifyContent: 'center'
     },
 
@@ -262,6 +266,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         width: '90%',
         alignItems: 'center',
+        marginTop: 20
     },
     
     containerRow: {

@@ -26,7 +26,8 @@ const Registry = (props) =>{
         beenInSaving,
         navigateToLogin,
         selectPhotoTapped,
-        avatarSource
+        avatarSource,
+        uploadImage
     } = props;
 
     return(
@@ -43,23 +44,28 @@ const Registry = (props) =>{
                     <View style = {styles.alimg}>
 
                         <View>
-
-                            <View
-                                style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
+                            <TouchableOpacity
+                                onPress = {selectPhotoTapped}
                             >
-                                <Image 
-                                        style={styles.avatar}
-                                        source={avatarSource}    
-                                />
-                            </View>
+                                <View
+                                    style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
+                                >
+                                    <Image 
+                                            style={styles.avatar}
+                                            source={avatarSource}    
+                                    />
+                                </View>
+                            </TouchableOpacity>
+
+                            
 
                             <View style = {styles.iconContainer}>
                                 <TouchableOpacity 
-                                    onPress={selectPhotoTapped}
+                                    onPress={uploadImage}
                                 >
                                     <Image 
                                         style={styles.iconOption}
-                                        source={require('./../../assets/registry/optionCamera.png')}    
+                                        source={require('./../../assets/settings/save.png')}    
                                     />
                                 </TouchableOpacity>
                             </View>

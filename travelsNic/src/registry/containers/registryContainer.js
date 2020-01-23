@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Registry from './../components/registry';
 import firebase from 'react-native-firebase';
+import uuid from 'uuid/v4';
 
 import {
     addUsers
@@ -26,6 +27,7 @@ class RegistryContainer extends Component {
                 email: '',
                 password: '',
                 userName: '',
+                avatar: '',
             },
 
             avatarSource: require('./../../assets/bus.png'),
@@ -60,28 +62,80 @@ class RegistryContainer extends Component {
             let source = {uri: response.uri};
   
             this.setState({
-              avatarSource: source,
+                avatarSource: source,
+                avatar: response.uri,
             });
           }
         });
-      }
+    }
+
+    uploadImage = () => {
+
+        const  {data, avatar, avatarSource , progress} = this.state;
+  
+  
+        if(data.avatar != null){
+          const ext = avatar.split('.').pop();
+          const filename = `${uuid()}.${ext}`; // Extract image extension
+          // Generate unique name
+          firebase
+          .storage()
+          .ref(`users/${filename}`)
+          .putFile(avatar)
+          .on(
+            firebase.storage.TaskEvent.STATE_CHANGED,
+            snapshot => {
+              let state = {};
+              state = {
+                ...state,
+                };
+              if (snapshot.state === firebase.storage.TaskState.SUCCESS) {
+                state = {
+                  ...state,
+                  data:{
+                    avatar: snapshot.downloadURL,
+                  },
+                };
+              }
+              this.setState(state);
+  
+             
+            },
+            error => {
+              unsubscribe();
+              alert('Sorry, Try again.');
+            }
+          );
+  
+          Alert.alert('La imagen se cargo correctamente');
+          
+        }
+  
+        if(avatarSource === null){
+          Alert.alert('Debe de agregar una imagen');
+        } 
+  
+      };
 
     myUserEvent = (userName) => {
-        
-        const { email, password } = this.state;
+    
+        const { email, password, avatar } = this.state;
 
         this.setState({
             userName: userName,
             data: {
+                userName: userName,
                 email: email,
-                password: password
+                password: password,
+                avatar: avatar
             }
         });
     }
+  
 
     myEmailEvent = (email) => {
 
-        const { password, userName } = this.state;
+        const { password, userName, avatar } = this.state;
 
         this.setState({
             email: email,
@@ -89,12 +143,13 @@ class RegistryContainer extends Component {
                 email: email,
                 password: password,
                 userName: userName,
+                avatar: avatar
             }
         })
     }
 
     myPasswordEvent = (password) => {
-        const { email, userName } = this.state;
+        const { email, userName, avatar} = this.state;
 
         this.setState({
             password: password,
@@ -102,13 +157,14 @@ class RegistryContainer extends Component {
                 email: email,
                 password: password,
                 userName: userName,
+                avatar: avatar
             }
         })
     }
 
     myEventPressSave = () => {
 
-        const { email, password, userName, data } = this.state;
+        const { email, password, userName, data, imageUri } = this.state;
 
         if(email === ''){
             Alert.alert("Debe de ingresar Email");
@@ -132,9 +188,9 @@ class RegistryContainer extends Component {
                         .createUserWithEmailAndPassword (email, password)
                 
                         .then (res => {
-                          
+
                             addUsers(data);
-    
+
                             this.setState({
                                 user: res.user,
                                 email: '',
@@ -198,6 +254,7 @@ class RegistryContainer extends Component {
                 navigateToLogin = {this.navigateToLogin}
                 selectPhotoTapped = {this.selectPhotoTapped.bind(this)}
                 avatarSource = {avatarSource}
+                uploadImage = {this.uploadImage}
             />
         )
 

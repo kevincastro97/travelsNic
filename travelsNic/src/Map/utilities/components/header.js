@@ -71,8 +71,8 @@ const Header = (props)=> {
 
                                     style = {styles.menu}
                                 >
-                                    <MenuItem onPress={navigateToProfile}>Perfil</MenuItem>
-                                    <MenuItem onPress={navigateToAboutUs}>Acerca de nosotros</MenuItem>
+                                   <MenuItem onPress={navigateToProfile}>Perfil</MenuItem>
+                                    <MenuItem onPress={navigateToAboutUs}>Informacion de TravelsNic</MenuItem>
                                     <MenuDivider />
                                     <MenuItem onPress={hideMenu}>Salir</MenuItem>
 
@@ -96,7 +96,7 @@ const Header = (props)=> {
                                     style = {styles.icon}
                                 />
                             </TouchableOpacity>
-                        
+
                         </View>
 
                     </View>
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
 
     menu:{
         height: 150,
-        width: 150,
+        width: 200,
         marginTop: -12,
         marginLeft: 15
     }

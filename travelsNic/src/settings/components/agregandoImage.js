@@ -7,35 +7,48 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
+
+
 
 const GaleriaImage = (props) => {
 
-    const { selectPhotoTapped, avatarSource } = props;
+    const { selectPhotoTapped, avatarSource, uploadImage, imageUri , GuardarIm} = props;
 
     return(
         <View style={styles.container}>
 
-            <View
-                style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
+            <TouchableOpacity
+              onPress = {selectPhotoTapped}
             >
-                <Image 
-                        style={styles.avatar}
-                        source={avatarSource}    
-                />
-            </View>
+              <View
+                  style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}
+              >
+                  <Image 
+                          style={styles.avatar}
+                          source={avatarSource}    
+                  />
+              </View>
+            </TouchableOpacity>
 
             <View style = {styles.iconContainer}>
               <TouchableOpacity 
-                  onPress={selectPhotoTapped}
+                  onPress={uploadImage}
               >
                 <Image 
                   style={styles.icon}
-                  source={require('./../../assets/registry/optionCamera.png')}    
+                  source={require('./../../assets/settings/save.png')}    
                 />
               </TouchableOpacity>
             </View>
-            
+            <Button
+              title= 'guardar'
+              onPress = {GuardarIm}
+            />
+
+            <Text>{imageUri}</Text>
+
         </View>
     );
 }

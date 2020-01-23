@@ -12,4 +12,4 @@ import Foto  from './src/settings/containers/agregandoImageContiener';
 
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => ModalTester);
+AppRegistry.registerComponent(appName, () => App);

@@ -27,8 +27,9 @@ const NearByStops = (props) => {
                 }}
             >
 
-                {data.map(marker => (
+                {data.map((marker, i) => (
                     <Marker
+                        key={i}
                         coordinate={marker.coordinate}
                         title={marker.title}
                         image = {marker.icon} 

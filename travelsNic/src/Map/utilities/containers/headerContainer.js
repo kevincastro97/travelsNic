@@ -45,6 +45,16 @@ class HeaderContainer extends Component {
       this._menu.hide();
     }
 
+    navigateToSmallBusiness = () =>{
+      this.props.navigation.navigate('AddSmallBusiness')
+      this._menu.hide();
+    }
+
+    navigateToTouristicCentress = () =>{
+      this.props.navigation.navigate('AddTouristicCentress')
+      this._menu.hide();
+    }
+
     render(){
         return(
             <Header
@@ -55,6 +65,8 @@ class HeaderContainer extends Component {
                 navigateToProfile = {this.navigateToProfile}
                 navigateToAddHotel = {this.navigateToAddHotel}
                 navigateToBahiaMap = {this.navigateToBahiaMap}
+                navigateToSmallBusiness = {this.navigateToSmallBusiness}
+                navigateToTouristicCentress = {this.navigateToTouristicCentress}
             />
         );
     }

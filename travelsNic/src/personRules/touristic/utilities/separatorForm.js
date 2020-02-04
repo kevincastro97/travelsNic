@@ -5,7 +5,7 @@ import {
     StyleSheet
 } from 'react-native';
 
-const SeparatorHotelAndRestaurant = () =>{
+const SeparatorForm = () =>{
     return(
         <View style = {styles.container}/>
     )
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default SeparatorHotelAndRestaurant;
+export default SeparatorForm

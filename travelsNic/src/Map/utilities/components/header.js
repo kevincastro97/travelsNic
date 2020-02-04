@@ -24,7 +24,9 @@ const Header = (props)=> {
         navigateToAboutUs,
         navigateToProfile,
         navigateToAddHotel,
-        navigateToBahiaMap
+        navigateToBahiaMap,
+        navigateToSmallBusiness,
+        navigateToTouristicCentress
     } = props;
 
     return(
@@ -77,8 +79,8 @@ const Header = (props)=> {
                                     <MenuItem onPress={navigateToAboutUs}>Informacion de TravelsNic</MenuItem>
                                     <MenuItem onPress={navigateToAddHotel}>Registro "Hotel y Restaurante"</MenuItem>
                                     <MenuItem onPress={navigateToBahiaMap}>Registro de Bahias</MenuItem>
-                                    <MenuItem onPress={navigateToAddHotel}>Registro Centros Turisticos</MenuItem>
-                                    <MenuItem onPress={navigateToAddHotel}>Registro Pequeños Negocios</MenuItem>
+                                    <MenuItem onPress={navigateToTouristicCentress}>Registro Centros Turisticos</MenuItem>
+                                    <MenuItem onPress={navigateToSmallBusiness}>Registro Pequeños Negocios</MenuItem>
                                     <MenuDivider />
                                     <MenuItem onPress={hideMenu}>Salir</MenuItem>
 

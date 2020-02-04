@@ -12,9 +12,9 @@ import {
     Picker
 } from 'react-native';
 
-import Separator from './../utilities/separatorHotelAndRestaurant'
+import Separator from '../../utilities/separatorForm'
 
-const RegistryHotelAndRestaurant = (props) =>{
+const RegistryTouristicCentres = (props) =>{
 
     const { 
         loadingState,
@@ -28,8 +28,6 @@ const RegistryHotelAndRestaurant = (props) =>{
         myOnChangeWhatsapp,
         origin, 
         myOnChangeOrigin,
-        imageStars,
-        myOnChangeImageStars, 
         image,
         myOnChangeImage,
         email,
@@ -46,7 +44,7 @@ const RegistryHotelAndRestaurant = (props) =>{
     return(
 
         <ImageBackground
-            source = {require('./../../../assets/login/lBackground.png')}
+            source = {require('./../../../../assets/login/lBackground.png')}
             style = {styles.imageContainer}
         > 
             <ScrollView>
@@ -54,13 +52,13 @@ const RegistryHotelAndRestaurant = (props) =>{
                 <View  style = {styles.container}>
 
                     <Text style = {styles.title}>
-                         Hotel y Restaurante
+                        Centros Turisticos
                     </Text>
 
                     <Separator/>
 
                     <Image
-                        source = {require('./../../../assets/bus.png')}
+                        source = {require('./../../../../assets/bus.png')}
                         style = {styles.imageFond}
                     />
 
@@ -76,7 +74,7 @@ const RegistryHotelAndRestaurant = (props) =>{
 
                                 <TextInput
                                     style = {styles.letterImput}
-                                    placeholder = 'Nombre del Centro Turistico'
+                                    placeholder = 'Nombre del centro turistico'
                                     value = {title}
                                     onChangeText = {myOnChangeTitle}
                                     maxLength = {50}
@@ -329,42 +327,6 @@ const RegistryHotelAndRestaurant = (props) =>{
 
                    <Separator/>
 
-                   <View style={styles.containerPicker}>
-
-                        <Picker
-                            selectedValue = { imageStars }
-                            style = { styles.picker }
-                            onValueChange = { myOnChangeImageStars }
-                        >
-                            <Picker.Item 
-                                label = 'Seleccionar estrellas'
-                                value = '' 
-                            />
-                            <Picker.Item 
-                                label = '1 Estrella'
-                                value = 'https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/star%2F5%20starts.png?alt=media&token=96e4cdb5-90be-48b6-a91b-ece33e093f99' 
-                            />
-                            <Picker.Item 
-                                label = '2 Estrellas'
-                                value = 'https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/star%2F4%20stars.png?alt=media&token=a1076346-2819-430c-988e-1763789fe08a' 
-                            />
-                            <Picker.Item 
-                                label = '3 Estrellas'
-                                value = 'https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/star%2F3%20stars.png?alt=media&token=8a1b3487-5d90-43bb-958a-71c427a7e04c' 
-                            />
-                            <Picker.Item 
-                                label = '4 Estrellas'
-                                value = 'https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/star%2F4%20stars.png?alt=media&token=a1076346-2819-430c-988e-1763789fe08a' 
-                            />
-                            <Picker.Item 
-                                label = '5 Estrellas'
-                                value = 'https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/star%2F5%20starts.png?alt=media&token=96e4cdb5-90be-48b6-a91b-ece33e093f99' 
-                            />
-
-                        </Picker>
-
-                    </View>
-
                     <TouchableOpacity 
                         onPress = {myEventSave}
                         editable = {loadingState === 'cargando' ? false : true }
@@ -501,4 +463,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default RegistryHotelAndRestaurant;
+export default RegistryTouristicCentres;

@@ -5,12 +5,12 @@ import {
 } from 'react-native';
 
 import {
-    addHotelAndRestaurant
-} from './../../../../lib/data/addHotelAndRestaurantRegistration'
+    addTouristicCentres
+} from './../../../../../lib/data/addTouristicCentres-data'
 
-import RegistryHotelAndRestaurant from './../components/registryHotelAndRestaurant';
+import RegistryTouristicCentres from './../components/registryTouristicCentres';
 
-class RegistryHotelAndRestaurantContainer extends Component{
+class RegistryTouristicCentresContainer extends Component{
 
     constructor(props){
         super(props);
@@ -21,7 +21,6 @@ class RegistryHotelAndRestaurantContainer extends Component{
             phone: '',
             whatsapp: '',
             origin: '',
-            imageStars: '',
             image: '',
             email: '',
             direction: '',
@@ -59,12 +58,6 @@ class RegistryHotelAndRestaurantContainer extends Component{
     myOnChangeOrigin = (origin) =>{
         this.setState({
             origin: origin,
-        })
-    }
-
-    myOnChangeImageStars = (imageStars) =>{
-        this.setState({
-            imageStars: imageStars,
         })
     }
 
@@ -110,7 +103,6 @@ class RegistryHotelAndRestaurantContainer extends Component{
             phone, 
             whatsapp, 
             origin, 
-            imageStars, 
             image,
             email,
             direction,
@@ -118,13 +110,12 @@ class RegistryHotelAndRestaurantContainer extends Component{
             department
         } = this.state
 
-        addHotelAndRestaurant({
+        addTouristicCentres({
             title: title,
             price: price,
             phone: phone,
             whatsapp: whatsapp,
             origin: origin,
-            imageStars: imageStars,
             image: image,
             email: email,
             direction: direction,
@@ -140,7 +131,6 @@ class RegistryHotelAndRestaurantContainer extends Component{
                 phone: '',
                 whatsapp: '',
                 origin: '',
-                imageStars: '',
                 image: '',
                 email: '',
                 direction: '',
@@ -168,7 +158,6 @@ class RegistryHotelAndRestaurantContainer extends Component{
             phone, 
             whatsapp, 
             origin, 
-            imageStars, 
             image,
             email,
             direction,
@@ -178,7 +167,7 @@ class RegistryHotelAndRestaurantContainer extends Component{
         } = this.state
 
         return(
-            <RegistryHotelAndRestaurant
+            <RegistryTouristicCentres
                 loadingState = { loadingState }
                 title = { title }
                 myOnChangeTitle = { this.myOnChangeTitle } 
@@ -190,8 +179,6 @@ class RegistryHotelAndRestaurantContainer extends Component{
                 myOnChangeWhatsapp = { this.myOnChangeWhatsapp }
                 origin = { origin }
                 myOnChangeOrigin = { this.myOnChangeOrigin }
-                imageStars = { imageStars }
-                myOnChangeImageStars = { this.myOnChangeImageStars }
                 image = { image }
                 myOnChangeImage = { this.myOnChangeImage }
                 email = { email }
@@ -208,4 +195,4 @@ class RegistryHotelAndRestaurantContainer extends Component{
     }
 }
 
-export default RegistryHotelAndRestaurantContainer;
+export default RegistryTouristicCentresContainer;

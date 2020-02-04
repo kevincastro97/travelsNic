@@ -22,7 +22,9 @@ const Header = (props)=> {
         showMenu,
         setMenuRef,
         navigateToAboutUs,
-        navigateToProfile
+        navigateToProfile,
+        navigateToAddHotel,
+        navigateToBahiaMap
     } = props;
 
     return(
@@ -71,8 +73,12 @@ const Header = (props)=> {
 
                                     style = {styles.menu}
                                 >
-                                   <MenuItem onPress={navigateToProfile}>Perfil</MenuItem>
+                                    <MenuItem onPress={navigateToProfile}>Perfil</MenuItem>
                                     <MenuItem onPress={navigateToAboutUs}>Informacion de TravelsNic</MenuItem>
+                                    <MenuItem onPress={navigateToAddHotel}>Registro "Hotel y Restaurante"</MenuItem>
+                                    <MenuItem onPress={navigateToBahiaMap}>Registro de Bahias</MenuItem>
+                                    <MenuItem onPress={navigateToAddHotel}>Registro Centros Turisticos</MenuItem>
+                                    <MenuItem onPress={navigateToAddHotel}>Registro Pequeños Negocios</MenuItem>
                                     <MenuDivider />
                                     <MenuItem onPress={hideMenu}>Salir</MenuItem>
 
@@ -219,7 +225,7 @@ const styles = StyleSheet.create({
     },
 
     menu:{
-        height: 150,
+        height: 340,
         width: 200,
         marginTop: -12,
         marginLeft: 15

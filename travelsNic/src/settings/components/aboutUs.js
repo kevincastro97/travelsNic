@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
     description:{
         fontSize: 13,
         marginTop: 5,
-        marginLeft: 10,
+        marginLeft: 20,
         color: '#7E7D7D',
         textAlign: 'justify'
     },

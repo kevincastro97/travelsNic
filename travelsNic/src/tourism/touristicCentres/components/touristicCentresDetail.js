@@ -31,11 +31,6 @@ const TouristicCentresDetail = (props) =>{
                         <Text  style = {styles.title}>
                             {data.title}
                         </Text>
-
-                        <Image
-                            source = {{ uri: data.imageStars}}
-                            style = {styles.imageStars}
-                        />
                     </View>
 
                     <View style = {styles.containerInformation}>
@@ -161,13 +156,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 220
     },
-
-    imageStars:{
-        width: 110,
-        height: 32,
-        marginRight: 5
-    },
-
+    
     textContainer:{
         flexDirection: 'row',
         marginTop: -32,

@@ -1,0 +1,16 @@
+autobus
+
+https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/map%2Fautobus.png?alt=media&token=c4f5a05e-1410-45cd-99d4-e84d3d8b3fb1
+
+deals
+
+https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/map%2Fdeals.png?alt=media&token=8c62a855-4fad-4b5d-80f8-a6c9006e0644
+
+hotelAndRestaurant 
+
+https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/map%2FhotelAndRestaurant.png?alt=media&token=1041372a-5c78-4c20-9388-27247528c55e
+
+touristic
+
+https://firebasestorage.googleapis.com/v0/b/travelsnic-d524e.appspot.com/o/map%2Ftouristic.png?alt=media&token=b4887e39-4f58-47c7-b252-8798718c54b3
+

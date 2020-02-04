@@ -7,6 +7,9 @@ import Map from './../../Map/containers/mapContainer';
 import AboutUs from './../../settings/components/aboutUs';
 import Profile from './../../profile/containers/profileContainer';
 
+import AddHotel from './../../personRules/touristic/containers/registryHotelAndRestaurantContianer';
+import AddBahiaMap from './../../personRules/Map/containers/bayRecordOnTheMapContainer';
+ 
 import HeaderComponent from './../../Map/utilities/containers/headerContainer'
 
 const StackNavigatorMap = createStackNavigator({
@@ -49,6 +52,34 @@ const StackNavigatorMap = createStackNavigator({
       screen: HeaderComponent,
       navigationOptions: {
         title: 'Perfil',
+        headerStyle: {
+          backgroundColor: '#193555',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+    },
+
+    AddHotel: {
+      screen: AddHotel,
+      navigationOptions: {
+        title: 'Registro',
+        headerStyle: {
+          backgroundColor: '#193555',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+    },
+
+    AddBahiaMap: {
+      screen: AddBahiaMap,
+      navigationOptions: {
+        title: 'Registro',
         headerStyle: {
           backgroundColor: '#193555',
         },

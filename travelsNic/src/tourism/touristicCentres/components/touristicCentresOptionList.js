@@ -104,11 +104,6 @@ const Element =(props) => {
                                 {item.department}
                             </Text>
 
-                            <Image
-                                source = {{ uri: item.imageStars }}
-                                style = {styles.imagesStars}
-                            />
-
                         </View>
     
                     </View>
@@ -176,11 +171,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
 
-    imagesStars:{
-        width: 50,
-        height: 15,
-    },
-
     address:{
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -221,6 +211,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 5,
+        marginRight: 5
     },
 
     textPrice:{

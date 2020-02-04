@@ -33,7 +33,17 @@ class HeaderContainer extends Component {
     navigateToProfile = () =>{
       this.props.navigation.navigate('Profile')
       this._menu.hide();
-  }
+    }
+
+    navigateToAddHotel = () =>{
+      this.props.navigation.navigate('AddHotel')
+      this._menu.hide();
+    }
+
+    navigateToBahiaMap = () =>{
+      this.props.navigation.navigate('AddBahiaMap')
+      this._menu.hide();
+    }
 
     render(){
         return(
@@ -43,6 +53,8 @@ class HeaderContainer extends Component {
                 setMenuRef = {this.setMenuRef}
                 navigateToAboutUs = {this.navigateToAboutUs}
                 navigateToProfile = {this.navigateToProfile}
+                navigateToAddHotel = {this.navigateToAddHotel}
+                navigateToBahiaMap = {this.navigateToBahiaMap}
             />
         );
     }

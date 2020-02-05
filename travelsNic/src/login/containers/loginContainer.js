@@ -28,11 +28,11 @@ class LoginContainer extends Component {
         });
       }
     
-      componentWillUnmount() {
+    componentWillUnmount() {
         if (this.unsubscriber) {
-          this.unsubscriber();
+            this.unsubscriber();
         }
-      }
+    }
     
     login = () => {
 

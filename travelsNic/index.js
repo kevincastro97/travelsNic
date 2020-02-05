@@ -8,7 +8,7 @@ import ModalTester from './src/menu/components/navigationTabs'
 
 import App from './src/menu/components/loginNavigator'
 
-import X  from './src/personRules/touristic/hotelAndRestaurant/containers/registryHotelAndRestaurantContianer';
+import X  from './src/profile/containers/modalNameContainer';
 
 import {name as appName} from './app.json';
 

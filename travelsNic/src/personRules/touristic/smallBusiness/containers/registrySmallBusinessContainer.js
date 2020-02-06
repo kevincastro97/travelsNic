@@ -121,7 +121,6 @@ class RegistrySmallBusinessContainer extends Component{
             direction: direction,
             description: description,
             department: department,
-            
         })
 
         .then(() => {

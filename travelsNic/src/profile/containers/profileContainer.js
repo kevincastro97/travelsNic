@@ -11,7 +11,7 @@ class ProfileContainer extends Component {
           modalVisible: false,
           modal: false
         }
-    }
+    } 
 
     setModalVisible = (visisble) =>{
         this.setState({

@@ -28,7 +28,7 @@ const Profile = (props) => {
     } = props;
 
 
-    return(
+    return( 
 
         <ScrollView>
 

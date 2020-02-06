@@ -23,12 +23,8 @@ class RegistryContainer extends Component {
             user: null,
             email: '',
             password: '',
-            data: {
-                email: '',
-                password: '',
-                userName: '',
-                avatar: '',
-            },
+            userName: '',
+            avatar: '',
 
             avatarSource: require('./../../assets/registry/user.png'),
         };
@@ -50,7 +46,6 @@ class RegistryContainer extends Component {
         };
     
         ImagePicker.showImagePicker(options, response => {
-          console.log('Response = ', response);
     
           if (response.didCancel) {
             console.log('User cancelled photo picker');
@@ -63,47 +58,49 @@ class RegistryContainer extends Component {
   
             this.setState({
                 avatarSource: source,
-                avatar: response.uri,
             });
+
+            this.uploadImage();
           }
         });
     }
 
     uploadImage = () => {
 
-        const  {data, avatar, avatarSource , progress} = this.state;
+        const  { avatar, avatarSource } = this.state;
   
   
-        if(data.avatar != null){
-          const ext = avatar.split('.').pop();
-          const filename = `${uuid()}.${ext}`; // Extract image extension
+        if(avatarSource != null){
+          //const ext = avatarSource.split('.').pop();
+          const filename = `${uuid()}.jpg`; // Extract image extension
           // Generate unique name
-          firebase
+          this.setState({
+              loadingState: 'cargando',
+          });
+          
+          const upload = firebase
           .storage()
           .ref(`users/${filename}`)
-          .putFile(avatar)
-          .on(
+          .putFile(avatarSource);
+
+          console.log("Upload");
+
+          upload.on(
             firebase.storage.TaskEvent.STATE_CHANGED,
             snapshot => {
-              let state = {};
-              state = {
-                ...state,
-                };
-              if (snapshot.state === firebase.storage.TaskState.SUCCESS) {
-                state = {
-                  ...state,
-                  data:{
-                    avatar: snapshot.downloadURL,
-                  },
-                };
-              }
-              this.setState(state);
-  
-             
+                console.log(snapshot.state);
             },
             error => {
               unsubscribe();
               alert('Sorry, Try again.');
+            }, () => {
+                console.log("----Terminado-------");
+                upload.snapshot.ref.getDownloadURL().then(downloadURL => {
+                    this.setState({
+                        loadingState: '',
+                        avatar: snapshot.downloadURL,
+                    });
+                })
             }
           );
   
@@ -118,53 +115,30 @@ class RegistryContainer extends Component {
       };
 
     myUserEvent = (userName) => {
-    
-        const { email, password, avatar } = this.state;
 
         this.setState({
             userName: userName,
-            data: {
-                userName: userName,
-                email: email,
-                password: password,
-                avatar: avatar
-            }
         });
     }
   
 
     myEmailEvent = (email) => {
 
-        const { password, userName, avatar } = this.state;
-
         this.setState({
             email: email,
-            data: {
-                email: email,
-                password: password,
-                userName: userName,
-                avatar: avatar
-            }
         })
     }
 
     myPasswordEvent = (password) => {
-        const { email, userName, avatar} = this.state;
 
         this.setState({
             password: password,
-            data: {
-                email: email,
-                password: password,
-                userName: userName,
-                avatar: avatar
-            }
         })
     }
 
     myEventPressSave = () => {
 
-        const { email, password, userName, data, imageUri } = this.state;
+        const { email, password, userName, avatar, } = this.state;
 
         if(email === ''){
             Alert.alert("Debe de ingresar Email");
@@ -189,7 +163,12 @@ class RegistryContainer extends Component {
                 
                         .then (res => {
 
-                            addUsers(data);
+                            addUsers({
+                                email: email,
+                                password: password,
+                                userName: userName,
+                                avatar: avatar,
+                            });
 
                             this.setState({
                                 user: res.user,

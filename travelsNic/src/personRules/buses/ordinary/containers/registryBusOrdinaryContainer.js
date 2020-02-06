@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 
 import {
-    addOrdinary
-} from './../../.././../../lib/data/addOrdinaryBusRegistration'
+    Alert
+} from 'react-native'
+
+import {
+    addOrdinaryLines
+} from './../../.././../../lib/data/ordinary-lines-data'
 
 import RegistryBusOrdinary from './../components/registryBusOrdinary';
 
@@ -12,40 +16,206 @@ class RegistryBusOrdinaryContainer extends Component {
         super(props);
 
         this.state = {
-            name: '',
-            dueño: ''
+            modal: false,
+            title:'',
+            line: '',
+            approximateTime:'',
+            arrivalTime: '',
+            department: '',
+            departureTime: '',
+            distance: '',
+            image: '',
+            origin: '',
+            passengers: '',
+            price: '',
+
+            loadingState: ''
         }
     }
 
-    onChangeName = (name) =>{
+    setModal = (visible) =>{
         this.setState({
-            name: name
+          modal: visible,
+        })
+      }
+  
+      onChangeCloseModal = () =>{
+        this.setModal(!this.state.modal);
+      }
+  
+      onChangeOpenModal = () =>{
+        this.setModal(true);
+    }
+
+    onChangeTitle = (title) =>{
+        this.setState({
+            title: title
         })
     }
 
-    onChangeDueño = (dueño) =>{
+    onChangeLine = (line) =>{
         this.setState({
-            dueño: dueño
+            line: line
         })
     }
 
-    miEventoGuardar = () =>{
+    onChangeApproximateTime = (approximateTime) =>{
+        this.setState({
+            approximateTime: approximateTime
+        })
+    }
 
-        const { name, dueño } = this.state
+    onChangeArrivalTime = (arrivalTime) =>{
+        this.setState({
+            arrivalTime: arrivalTime
+        })
+    }
 
-        addOrdinary({
-            name: name,
-            dueño: dueño
+    onChangeDepartment = (department) =>{
+        this.setState({
+            department: department
+        })
+    }
+    onChangeDepartureTime = (departureTime) =>{
+        this.setState({
+            departureTime: departureTime
+        })
+    }
+    onChangeDistance = (distance) =>{
+        this.setState({
+            distance: distance
+        })
+    }
+    onChangePassengers = (passengers) =>{
+        this.setState({
+            passengers: passengers
+        })
+    }
+    onChangePrice = (price) =>{
+        this.setState({
+            price: price
+        })
+    }
+    onChangeOrigin = (origin) =>{
+        this.setState({
+            origin: origin
+        })
+    }
+
+    myEventSave = () =>{
+
+        this.setState({
+            loadingState: 'cargando'
         })
 
+        const {
+            title,
+            approximateTime,
+            arrivalTime,
+            department,
+            departureTime,
+            distance,
+            image,
+            line,
+            origin,
+            passengers,
+            price,
+        } = this.state;
+
+        const priceData = 'C$ ' + price;
+
+        addOrdinaryLines({
+            title: title,
+            approximateTime: approximateTime,
+            arrivalTime: arrivalTime,
+            department: department,
+            departureTime: departureTime,
+            distance: distance,
+            image: image,
+            line: line,
+            origin: origin,
+            passengers: passengers,
+            price: priceData,
+        })
+
+        .then(() => {
+            this.setState({
+
+                title:'',
+                line: '',
+                approximateTime:'',
+                arrivalTime: '',
+                department: '',
+                departureTime: '',
+                distance: '',
+                image: '',
+                origin: '',
+                passengers: '',
+                price: '',
+
+                loadingState: 'guardado',
+            })
+
+            Alert.alert("Los datos se agregaron correctamente");
+        })
+        .catch((error) => {
+            this.setState({
+                loadingState: 'error',
+            })
+
+            Alert.alert("Ocurrio un error al agregar los datos");
+        })
     }
 
     render(){
 
-        const { name, dueño } = this.state;
+        const {
+            title,
+            approximateTime,
+            arrivalTime,
+            department,
+            departureTime,
+            distance,
+            image,
+            line,
+            origin,
+            passengers,
+            price,
+
+            loadingState,
+            modal,
+
+        } = this.state;
 
         return(
-            <RegistryBusOrdinary/>
+            <RegistryBusOrdinary
+                loadingState = { loadingState }
+                title = { title }
+                onChangeTitle = { this.onChangeTitle }
+                approximateTime = { approximateTime }
+                onChangeApproximateTime = { this.onChangeApproximateTime }
+                arrivalTime = { arrivalTime }
+                onChangeArrivalTime = { this.onChangeArrivalTime }
+                department = { department }
+                onChangeDepartment = { this.onChangeDepartment}
+                departureTime = { departureTime }
+                onChangeDepartureTime = { this.onChangeDepartureTime }
+                distance = { distance }
+                onChangeDistance = { this.onChangeDistance}
+                line = { line }
+                onChangeLine = { this.onChangeLine }
+                origin = { origin }
+                onChangeOrigin = { this.onChangeOrigin}
+                passengers = { passengers }
+                onChangePassengers = { this.onChangePassengers }
+                price = { price }
+                onChangePrice = { this.onChangePrice}
+                myEventSave = {this.myEventSave}
+
+                modal = {modal}
+                onChangeOpenModal = {this.onChangeOpenModal}
+                onChangeCloseModal = {this.onChangeCloseModal}
+            />
         );
     }
 }

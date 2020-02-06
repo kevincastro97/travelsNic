@@ -14,4 +14,4 @@ import Image from './src/provado/image'
 
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => Image);
+AppRegistry.registerComponent(appName, () => App);

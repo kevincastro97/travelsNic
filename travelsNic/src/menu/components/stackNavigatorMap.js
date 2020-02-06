@@ -6,6 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack'
 import Map from './../../Map/containers/mapContainer';
 import AboutUs from './../../settings/components/aboutUs';
 import Profile from './../../profile/containers/profileContainer';
+import MapDetail from './../../Map/containers/map-detail';
 
 import HeaderComponent from './../../Map/utilities/containers/headerContainer'
 
@@ -15,6 +16,9 @@ const StackNavigatorMap = createStackNavigator({
         navigationOptions: {
           headerShown: false, 
         },
+    },
+    MapDetail: {
+      screen: MapDetail,
     },
 
     AboutUs: {

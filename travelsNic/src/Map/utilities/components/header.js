@@ -7,7 +7,7 @@ import {
     SafeAreaView,
     StyleSheet,
     Image,
-    TextInput
+    TextInput,
 } from 'react-native';
 
 import Menu, { 
@@ -22,7 +22,12 @@ const Header = (props)=> {
         showMenu,
         setMenuRef,
         navigateToAboutUs,
-        navigateToProfile
+        navigateToProfile,
+
+        onSelectOrigin,
+        origin,
+        onSelectDestination,
+        destination,
     } = props;
 
     return(
@@ -85,11 +90,33 @@ const Header = (props)=> {
 
                             <TextInput
                                 style = {styles.letterImput}
-                                placeholder = '¿Dónde quieres ir?'
+                                placeholder = '¿Dónde tomarás bus?'
+                                defaultValue={origin}
                             />
 
                             <TouchableOpacity
                                 style = {styles.fondIcon}
+                                onPress={onSelectOrigin}
+                            >
+                                <Image
+                                    source = {require('./../../../assets/header/lookFor.png')}
+                                    style = {styles.icon}
+                                />
+                            </TouchableOpacity>
+
+                        </View>
+
+                        <View style = {styles.textImput}>
+
+                            <TextInput
+                                style = {styles.letterImput}
+                                placeholder = '¿Dónde quieres ir?'
+                                defaultValue={destination}
+                            />
+
+                            <TouchableOpacity
+                                style = {styles.fondIcon}
+                                onPress={onSelectDestination}
                             >
                                 <Image
                                     source = {require('./../../../assets/header/lookFor.png')}
@@ -121,7 +148,7 @@ const styles = StyleSheet.create({
     fondColor: {
         backgroundColor: '#193555',
         width: '100%',
-        height: 140,
+        height: 190,
         borderRadius: 25,
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -223,7 +250,12 @@ const styles = StyleSheet.create({
         width: 200,
         marginTop: -12,
         marginLeft: 15
-    }
+    },
+    finishButton: {
+        backgroundColor: '#1c5dc4',
+        borderRadius: 4,
+        padding: 8,
+    },
 })
 
 export default Header;

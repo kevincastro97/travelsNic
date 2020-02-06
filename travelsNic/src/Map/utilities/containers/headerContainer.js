@@ -1,6 +1,5 @@
 import React, { Component} from 'react';
-
-import { withNavigation} from 'react-navigation'
+import { withNavigation} from 'react-navigation';
 
 import Header from './../components/header';
 
@@ -36,6 +35,14 @@ class HeaderContainer extends Component {
   }
 
     render(){
+
+        const {
+          onSelectOrigin,
+          origin,
+          onSelectDestination,
+          destination,
+        } = this.props;
+
         return(
             <Header
                 showMenu = {this.showMenu}
@@ -43,6 +50,11 @@ class HeaderContainer extends Component {
                 setMenuRef = {this.setMenuRef}
                 navigateToAboutUs = {this.navigateToAboutUs}
                 navigateToProfile = {this.navigateToProfile}
+
+                onSelectOrigin={onSelectOrigin}
+                origin={origin}
+                onSelectDestination={onSelectDestination}
+                destination={destination}
             />
         );
     }

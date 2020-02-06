@@ -163,8 +163,8 @@ const styles = StyleSheet.create({
     },
 
     imageStars:{
-        width: 110,
-        height: 32,
+        width: 70,
+        height: 15,
         marginRight: 5
     },
 

@@ -8,6 +8,11 @@ import AboutUs from './../../settings/components/aboutUs';
 import Profile from './../../profile/containers/profileContainer';
 import MapDetail from './../../Map/containers/map-detail';
 
+import AddBahiaMap from './../../personRules/Map/containers/bayRecordOnTheMapContainer';
+import AddHotel from './../../personRules/touristic/hotelAndRestaurant/containers/registryHotelAndRestaurantContianer';
+import AddSmallBusiness from './../../personRules/touristic/smallBusiness/containers/registrySmallBusinessContainer';
+import AddTouristicCentress from './../../personRules/touristic/touristicCentres/containers/registryTouristicCentresContainer';
+ 
 import HeaderComponent from './../../Map/utilities/containers/headerContainer'
 
 const StackNavigatorMap = createStackNavigator({
@@ -53,6 +58,62 @@ const StackNavigatorMap = createStackNavigator({
       screen: HeaderComponent,
       navigationOptions: {
         title: 'Perfil',
+        headerStyle: {
+          backgroundColor: '#193555',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+    },
+
+    AddHotel: {
+      screen: AddHotel,
+      navigationOptions: {
+        title: 'Registro',
+        headerStyle: {
+          backgroundColor: '#193555',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+    },
+
+    AddBahiaMap: {
+      screen: AddBahiaMap,
+      navigationOptions: {
+        title: 'Registro',
+        headerStyle: {
+          backgroundColor: '#193555',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+    },
+
+    AddSmallBusiness: {
+      screen: AddSmallBusiness,
+      navigationOptions: {
+        title: 'Registro',
+        headerStyle: {
+          backgroundColor: '#193555',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      },
+    },
+
+    AddTouristicCentress: {
+      screen: AddTouristicCentress,
+      navigationOptions: {
+        title: 'Registro',
         headerStyle: {
           backgroundColor: '#193555',
         },

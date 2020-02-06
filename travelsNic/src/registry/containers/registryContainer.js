@@ -30,7 +30,7 @@ class RegistryContainer extends Component {
                 avatar: '',
             },
 
-            avatarSource: require('./../../assets/bus.png'),
+            avatarSource: require('./../../assets/registry/user.png'),
         };
 
         this.selectPhotoTapped = this.selectPhotoTapped.bind(this);

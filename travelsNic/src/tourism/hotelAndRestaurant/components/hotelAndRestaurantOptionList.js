@@ -177,8 +177,9 @@ const styles = StyleSheet.create({
     },
 
     imagesStars:{
-        width: 50,
+        width: 70,
         height: 15,
+        marginRight: 5
     },
 
     address:{
@@ -221,6 +222,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 5,
+        marginRight: 5
     },
 
     textPrice:{

@@ -13,7 +13,6 @@ class TouristicCentresDetailContainer extends Component {
             touristicCentresInformation: {
                 title: touristicCentres.title,
                 image: touristicCentres.image,
-                imageStars: touristicCentres.imageStars,
                 direction: touristicCentres.direction,
                 description: touristicCentres.description,
                 phone: touristicCentres.phone,

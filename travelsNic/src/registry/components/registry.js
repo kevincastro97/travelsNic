@@ -241,13 +241,13 @@ const styles = StyleSheet.create({
     },
 
     iconContainer:{
-        marginTop: -55,
+        marginTop: -50,
         marginLeft: 65
     },
 
     iconOption:{
-        height: 35,
-        width: 35
+        height: 30,
+        width: 30
     },
 
     containerImage:{

@@ -32,7 +32,27 @@ class HeaderContainer extends Component {
     navigateToProfile = () =>{
       this.props.navigation.navigate('Profile')
       this._menu.hide();
-  }
+    }
+
+    navigateToAddHotel = () =>{
+      this.props.navigation.navigate('AddHotel')
+      this._menu.hide();
+    }
+
+    navigateToBahiaMap = () =>{
+      this.props.navigation.navigate('AddBahiaMap')
+      this._menu.hide();
+    }
+
+    navigateToSmallBusiness = () =>{
+      this.props.navigation.navigate('AddSmallBusiness')
+      this._menu.hide();
+    }
+
+    navigateToTouristicCentress = () =>{
+      this.props.navigation.navigate('AddTouristicCentress')
+      this._menu.hide();
+    }
 
     render(){
 
@@ -55,6 +75,12 @@ class HeaderContainer extends Component {
                 origin={origin}
                 onSelectDestination={onSelectDestination}
                 destination={destination}
+
+                navigateToAddHotel = {this.navigateToAddHotel}
+                navigateToBahiaMap = {this.navigateToBahiaMap}
+                navigateToSmallBusiness = {this.navigateToSmallBusiness}
+                navigateToTouristicCentress = {this.navigateToTouristicCentress}
+
             />
         );
     }

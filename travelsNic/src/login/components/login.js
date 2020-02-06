@@ -32,9 +32,6 @@ const Login = (props) =>{
         > 
             <ScrollView>
                 <View  style = {styles.container}>
-
-                
-
                     <View style = {styles.header}>
 
                         <Image

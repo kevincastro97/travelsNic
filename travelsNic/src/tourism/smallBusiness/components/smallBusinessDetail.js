@@ -32,10 +32,6 @@ const SmallBusinessDetail = (props) =>{
                             {data.title}
                         </Text>
 
-                        <Image
-                            source = {{ uri: data.imageStars}}
-                            style = {styles.imageStars}
-                        />
                     </View>
 
                     <View style = {styles.containerInformation}>
@@ -160,12 +156,6 @@ const styles = StyleSheet.create({
     image:{
         width: '100%',
         height: 220
-    },
-
-    imageStars:{
-        width: 110,
-        height: 32,
-        marginRight: 5
     },
 
     textContainer:{

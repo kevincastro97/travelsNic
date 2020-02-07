@@ -31,7 +31,9 @@ const Header = (props)=> {
         navigateToAddHotel,
         navigateToBahiaMap,
         navigateToSmallBusiness,
-        navigateToTouristicCentress
+        navigateToTouristicCentress,
+
+        userData,
     } = props;
 
     return(
@@ -49,16 +51,29 @@ const Header = (props)=> {
                             <View style = {styles.nameContainer}>
 
                             <View style = {styles.fondImage}>
-                                <Image
-                                    source={require('./../../../assets/login/travelsNic.png')}
-                                    style = {styles.image}
-                                />
+                                {!userData ?
+                                    <Image
+                                        source={require('./../../../assets/login/travelsNic.png')}
+                                        style = {styles.image}
+                                    />
+                                    :
+                                    <Image
+                                        source={{ uri: userData.avatar }}
+                                        style={styles.image}
+                                    />
+                                }
 
                             </View>
 
-                            <Text style = {styles.name}>
-                                TravelsNic
-                            </Text>
+                            {!userData ?
+                                <Text style = {styles.name}>
+                                    TravelsNic
+                                </Text>
+                                :
+                                <Text style={styles.name}>
+                                    {userData.userName}
+                                </Text>
+                            }
 
                             </View>
 

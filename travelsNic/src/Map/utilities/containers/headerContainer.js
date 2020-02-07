@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import { withNavigation} from 'react-navigation';
+import { withNavigation } from 'react-navigation';
 
 import Header from './../components/header';
 
@@ -61,6 +62,7 @@ class HeaderContainer extends Component {
           origin,
           onSelectDestination,
           destination,
+          userData,
         } = this.props;
 
         return(
@@ -81,6 +83,7 @@ class HeaderContainer extends Component {
                 navigateToSmallBusiness = {this.navigateToSmallBusiness}
                 navigateToTouristicCentress = {this.navigateToTouristicCentress}
 
+                userData={userData}
             />
         );
     }

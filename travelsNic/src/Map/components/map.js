@@ -24,6 +24,7 @@ const NearByStops = (props) => {
         destinationCoor,
         currentPosition,
         onPressLocation,
+        userData,
     } = props;
 
     let initialLatitude = 12.1062900;
@@ -52,6 +53,7 @@ const NearByStops = (props) => {
                 origin={origin}
                 onSelectDestination={onSelectDestination}
                 destination={destination}
+                userData={userData}
             />
 
             <MapView

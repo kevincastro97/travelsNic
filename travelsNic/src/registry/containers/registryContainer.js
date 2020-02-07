@@ -35,13 +35,10 @@ class RegistryContainer extends Component {
     selectPhotoTapped() {
         const options = {
           title: 'Seleccionar foto',
-          takePhotoButtonTitle: 'Tomar foto',
-          chooseFromLibraryButtonTitle: 'Galeria',
-          quality: 1.0,
-          maxWidth: 500,
-          maxHeight: 500,
           storageOptions: {
             skipBackup: true,
+            path: 'images',
+            allowEditing: true,
           },
         };
     
@@ -54,7 +51,10 @@ class RegistryContainer extends Component {
           } else if (response.customButton) {
             console.log('User tapped custom button: ', response.customButton);
           } else {
-            let source = {uri: response.uri};
+            let source = {
+                uri: response.uri.toString(),
+                path: response.path.toString(),
+            };
   
             this.setState({
                 avatarSource: source,
@@ -77,15 +77,25 @@ class RegistryContainer extends Component {
           this.setState({
               loadingState: 'cargando',
           });
-          
-          const upload = firebase
+
+          console.log("registryContainer: ", avatarSource);
+
+          firebase
           .storage()
-          .ref(`users/${filename}`)
-          .putFile(avatarSource);
+          .ref(`/users/${filename}`)
+          .putFile(avatarSource.path)
+          .then(snapshot => {
+                console.log("Firebase Storage TEST:");
+                console.log(snapshot.downloadURL);
+                this.setState({
+                    loadingState: '',
+                    avatar: snapshot.downloadURL,
+                });
+                Alert.alert('La imagen se cargo correctamente');
+          })
+          .catch(error => console.log(error));
 
-          console.log("Upload");
-
-          upload.on(
+          /*upload.on(
             firebase.storage.TaskEvent.STATE_CHANGED,
             snapshot => {
                 console.log(snapshot.state);
@@ -102,9 +112,7 @@ class RegistryContainer extends Component {
                     });
                 })
             }
-          );
-  
-          Alert.alert('La imagen se cargo correctamente');
+          );*/
           
         }
   
@@ -163,12 +171,15 @@ class RegistryContainer extends Component {
                 
                         .then (res => {
 
-                            addUsers({
-                                email: email,
-                                password: password,
-                                userName: userName,
-                                avatar: avatar,
-                            });
+                            addUsers(
+                                {
+                                    email: email,
+                                    password: password,
+                                    userName: userName,
+                                    avatar: avatar,
+                                },
+                                res.user.uid
+                            );
 
                             this.setState({
                                 user: res.user,

@@ -1,5 +1,5 @@
-/*import React, { Component} from 'react';
-import { withNavigation} from 'react-navigation';
+import React, { Component} from 'react';
+import { withNavigation } from 'react-navigation';
 
 import Header from './../components/header';
 
@@ -61,6 +61,7 @@ class HeaderContainer extends Component {
           origin,
           onSelectDestination,
           destination,
+          userData,
         } = this.props;
 
         return(
@@ -81,47 +82,10 @@ class HeaderContainer extends Component {
                 navigateToSmallBusiness = {this.navigateToSmallBusiness}
                 navigateToTouristicCentress = {this.navigateToTouristicCentress}
 
+                userData={userData}
             />
         );
     }
 }
 
-export default withNavigation(HeaderContainer);*/
-
-
-import React from 'react';
-import { StyleSheet, Platform, Image, Text, View } from 'react-native';
-import firebase from 'react-native-firebase'
-
-
-export default class Home extends React.Component {
-  state = { currentUser: null }
-
-componentDidMount() {
-    const { currentUser } = firebase.auth()
-    this.setState({ currentUser })
-}
-
-
-render() {
-    const { currentUser } = this.state
-  return (
-      <View style={styles.container}>
-
-        <Text style={{fontSize: 20}}> 
-          Hi<Text style={{color:'#e93766', fontSize: 20}}> 
-              {currentUser && currentUser.email}!
-            </Text>
-          </Text>
-        </View>
-    )
-  }
-}
-const styles = StyleSheet.create({
-  container:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    resizeMode: 'contain',
-    backgroundColor: '#ebe9e4'
-},
-})
+export default withNavigation(HeaderContainer);

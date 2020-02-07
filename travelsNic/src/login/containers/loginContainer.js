@@ -55,11 +55,14 @@ class LoginContainer extends Component {
                     .auth()
                     .signInWithEmailAndPassword (userEmail, userPassword)
                     .then (res => {
+                        console.log("User signin: ", res);
                         this.setState({
                             user: res.user,
                             loadingState: 'cargado',
                         });
-                        this.props.navigation.navigate('MenuTabs');
+                        this.props.navigation.navigate('MenuTabs', {
+                            user: res.user,
+                        });
                     })
                     .catch((error) => {
                         this.setState({

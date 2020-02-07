@@ -9,11 +9,18 @@ import {
 import SelectBayForMap from './select-bay-for-map-container';
 
 import Geolocation from '@react-native-community/geolocation';
+import {
+    getUserById,
+} from './../../../lib/data/user-data';
 
 class MapContainer extends Component{
 
     constructor(props){
         super(props);
+
+        const user = props.navigation.dangerouslyGetParent().getParam('user', null);
+
+        console.log("User in map: ", user);
 
         this.state = {
             loadingState: 'cargando',
@@ -27,6 +34,8 @@ class MapContainer extends Component{
             destination: '',
             currentPosition: null,
             data:[],
+            user: user,
+            userData: null,
         }
     }
 
@@ -43,6 +52,7 @@ class MapContainer extends Component{
             destination,
             destinationCoor,
             currentPosition,
+            userData,
         } = this.state
 
         if(selectOrigin)
@@ -76,6 +86,7 @@ class MapContainer extends Component{
                 currentPosition={currentPosition}
                 data = {data}
                 onPressLocation={this.handlePressLocation}
+                userData={userData}
             />
         );
 
@@ -105,6 +116,20 @@ class MapContainer extends Component{
     componentDidMount() {
         this.loadCoordinateMapData();
         this.getWatchPosition();
+        this.getUserLogged();
+    }
+
+    getUserLogged = () => {
+        const { user } = this.state;
+        getUserById(user.uid)
+        .then(userData => {
+            this.setState({
+                userData: userData,
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
 
     getCurrentPosition = () => {

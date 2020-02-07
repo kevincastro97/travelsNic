@@ -34,11 +34,12 @@ class SelectBayForMapContainer extends Component {
 
         return (
             <SelectBayForMap
+                bayListData = {this.handleFilterAdvanced()}
                 search={search}
                 onChangeSearch={this.handleChangeSearch}
                 bayListData={bayListData}
                 onBayItemClick={onBayItemClick}
-            />
+            /> 
         );
     }
 
@@ -48,6 +49,29 @@ class SelectBayForMapContainer extends Component {
             bayListData: results,
         });
     }
+
+    handleFilterAdvanced = () => {
+        const {
+            search,
+            bayListData,
+        } = this.state;
+
+        console.log('Filtros: ', search);
+        
+        if(!search) return bayListData;
+
+        let arrayFilter = bayListData;
+
+        if(search) {
+            arrayFilter = arrayFilter.filter((item) => {
+                console.log('Filtros: ', item.title);
+                return item.title.toLowerCase().includes(search.toLowerCase());
+            });
+        }
+
+        return arrayFilter;
+         
+    };
 
 }
 
